@@ -755,6 +755,165 @@ img {
 }
 
 /* =========================
+   Blog
+   ========================= */
+
+.section-blog {
+  align-items: flex-start;
+  padding-top: 72px;
+}
+
+.section-blog .section-inner {
+  max-width: 1120px;
+}
+
+.blog-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.blog-header .section-heading {
+  margin-bottom: 8px;
+}
+
+.blog-header .section-desc {
+  margin: 0 auto;
+  max-width: 520px;
+}
+
+/* 카드 2x2 그리드 */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* 카드 공통 */
+.blog-card {
+  border-radius: 20px;
+  background: radial-gradient(
+    circle at top left,
+    rgba(15, 23, 42, 0.98),
+    rgba(15, 23, 42, 0.96)
+  );
+  border: 1px solid rgba(30, 64, 175, 0.7);
+  box-shadow:
+    0 10px 24px rgba(15, 23, 42, 0.9),
+    0 0 0 1px rgba(15, 23, 42, 0.8);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+/* 썸네일 영역 */
+.blog-thumb {
+  width: 32%;
+  min-width: 110px;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  position: relative;
+}
+
+.blog-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 썸네일 없을 때 */
+.blog-thumb-placeholder::before {
+  content: "Blog";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+/* 텍스트 영역 */
+.blog-body {
+  flex: 1;
+  padding: 12px 14px 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-bottom: 4px;
+}
+
+.blog-date {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.blog-title {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f9fafb;
+}
+
+.blog-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.blog-title a:hover {
+  text-decoration: underline;
+}
+
+.blog-excerpt {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+/* 태그는 필요하면 나중에 확장 */
+.blog-tags {
+  margin-top: auto;
+  font-size: 0.8rem;
+  color: #e5e7eb;
+}
+
+/* 로딩 카드 색 살짝 다르게 */
+.blog-card-loading {
+  opacity: 0.7;
+}
+
+/* 반응형: 태블릿 → 2열, 모바일 → 1열 + 세로 배치 */
+@media (max-width: 1024px) {
+  .blog-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .section-blog {
+    padding-top: 48px;
+  }
+
+  .blog-card {
+    flex-direction: column;
+  }
+
+  .blog-thumb {
+    width: 100%;
+    height: 150px;
+  }
+
+  .blog-body {
+    padding: 10px 12px 12px;
+  }
+}
+
+/* =========================
    Breakpoints
    ========================= */
 @media (min-width: 768px) {

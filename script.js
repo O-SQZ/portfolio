@@ -138,9 +138,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateProjectCarousel() {
       const cardWidth = getCardWidth();
-      projectTrack.style.transform = `translateX(-${
-        currentIndex * cardWidth
-      }px)`;
+      projectTrack.style.transform = `translateX(-${currentIndex * cardWidth
+        }px)`;
     }
 
     function goToNext() {
@@ -175,5 +174,122 @@ document.addEventListener("DOMContentLoaded", () => {
       recalcBounds();
       updateProjectCarousel();
     });
+  }
+
+  /* =========================
+   5) Blog – Tistory RSS 최신 4개 불러오기
+   ========================= */
+  const blogGrid = document.getElementById("blog-grid");
+
+  if (blogGrid) {
+    const RSS_URL = "https://o-sqz.tistory.com/rss";
+
+    function stripHtml(html) {
+      const tmp = document.createElement("div");
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || "";
+    }
+
+    function extractFirstImageSrc(html) {
+      const match = html.match(/<img[^>]+src=["']([^"']+)["']/i);
+      return match ? match[1] : null;
+    }
+
+    function createBlogCard(post) {
+      const card = document.createElement("article");
+      card.className = "blog-card";
+
+      const hasThumb = !!post.thumbnail;
+
+      card.innerHTML = `
+        <div class="blog-thumb ${hasThumb ? "" : "blog-thumb-placeholder"}">
+          ${hasThumb
+          ? `<img src="${post.thumbnail}" alt="${post.title} 썸네일" />`
+          : ""
+        }
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-date">${post.date}</span>
+          </div>
+          <h3 class="blog-title">
+            <a href="${post.link}" target="_blank" rel="noreferrer">
+              ${post.title}
+            </a>
+          </h3>
+          <p class="blog-excerpt">
+            ${post.excerpt}
+          </p>
+        </div>
+      `;
+
+      return card;
+    }
+
+    async function loadBlogPosts() {
+      try {
+        const res = await fetch(RSS_URL);
+        if (!res.ok) throw new Error("RSS fetch failed");
+
+        const text = await res.text();
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(text, "application/xml");
+
+        const items = Array.from(xml.querySelectorAll("item")).slice(0, 4);
+
+        if (!items.length) {
+          throw new Error("No RSS items");
+        }
+
+        // 기존 로딩 카드 제거
+        blogGrid.innerHTML = "";
+
+        items.forEach((item) => {
+          const title = item.querySelector("title")?.textContent?.trim() || "";
+          const link = item.querySelector("link")?.textContent?.trim() || "#";
+          const pubDate =
+            item.querySelector("pubDate")?.textContent?.trim() || "";
+          const descRaw =
+            item.querySelector("description")?.textContent || "";
+
+          const thumb = extractFirstImageSrc(descRaw);
+          const plain = stripHtml(descRaw).replace(/\s+/g, " ").trim();
+          const excerpt =
+            plain.length > 80 ? `${plain.slice(0, 80)}...` : plain;
+
+          const post = {
+            title,
+            link,
+            date: pubDate ? new Date(pubDate).toISOString().slice(0, 10) : "",
+            excerpt,
+            thumbnail: thumb,
+          };
+
+          blogGrid.appendChild(createBlogCard(post));
+        });
+      } catch (err) {
+        console.error("Blog RSS load error:", err);
+        blogGrid.innerHTML = `
+          <article class="blog-card blog-card-loading">
+            <div class="blog-thumb blog-thumb-placeholder"></div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span class="blog-date">Error</span>
+              </div>
+              <h3 class="blog-title">
+                <a href="https://o-sqz.tistory.com/" target="_blank" rel="noreferrer">
+                  블로그를 불러오지 못했습니다.
+                </a>
+              </h3>
+              <p class="blog-excerpt">
+                직접 블로그에서 최신 포스팅을 확인해 주세요.
+              </p>
+            </div>
+          </article>
+        `;
+      }
+    }
+
+    loadBlogPosts();
   }
 });
