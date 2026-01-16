@@ -851,6 +851,70 @@ img {
   flex-direction: column;
 }
 
+/* Blog: more button */
+.blog-more-wrapper {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.blog-more-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #f9fafb;
+  background: radial-gradient(circle at 0% 0%, #ff8800 0, #ff8800 35%, #3b82f6 70%, #22d3ee 100%);
+  background-size: 200% 200%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  transition:
+    background-position 0.4s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.blog-more-button:hover {
+  background-position: 100% 50%;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.blog-more-button:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+  opacity: 0.95;
+}
+
+.blog-more-label {
+  letter-spacing: 0.02em;
+}
+
+.blog-more-icon {
+  font-size: 1.05rem;
+  opacity: 0.9;
+}
+
+/* 모바일에서 여백 조금 줄이기 */
+@media (max-width: 768px) {
+  .blog-more-wrapper {
+    margin-top: 24px;
+  }
+
+  .blog-more-button {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+}
+
 .blog-meta {
   display: flex;
   justify-content: space-between;
