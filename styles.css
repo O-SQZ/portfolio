@@ -210,7 +210,7 @@ img {
     "main profile"
     "stack stack";
   column-gap: 64px;
-  row-gap: 10px; /* 소개 - Stack 간격 축소 */
+  row-gap: 0; /* 소개 - Stack 간격 거의 붙이기 */
 }
 
 /* 슬라이드 공통 */
@@ -264,25 +264,24 @@ img {
 .intro-tags span {
   padding: 4px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(15, 23, 42, 0.9);
-  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid transparent;
   color: #e5e7eb;
 }
 
-/* 태그별 색 (프로젝트와 연동 예정) */
+/* 태그별 색 + 그라데이션 */
 .tag-web {
-  background: rgba(37, 99, 235, 0.28) !important;
-  border-color: rgba(59, 130, 246, 0.55) !important;
+  background: linear-gradient(135deg, #1d4ed8, #22c1f1);
+  border-color: rgba(59, 130, 246, 0.8);
 }
 
 .tag-auto {
-  background: rgba(234, 179, 8, 0.3) !important;
-  border-color: rgba(234, 179, 8, 0.7) !important;
+  background: linear-gradient(135deg, #16a34a, #4ade80);
+  border-color: rgba(34, 197, 94, 0.85);
 }
 
 .tag-se {
-  background: rgba(244, 63, 94, 0.32) !important;
-  border-color: rgba(248, 113, 113, 0.7) !important;
+  background: linear-gradient(135deg, #f97316, #fb7185);
+  border-color: rgba(248, 113, 22, 0.9);
 }
 
 /* 소개 텍스트 */
@@ -364,7 +363,7 @@ img {
 
 /* Tech Stack */
 .stack {
-  margin-top: 4px; /* 간격 줄이기 */
+  margin-top: 0; /* 소개와 거의 붙게 */
 }
 
 .stack-title {
@@ -372,7 +371,7 @@ img {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #f9fafb;
-  margin-bottom: 16px;
+  margin: 10px 0 12px;
 }
 
 .stack-group {
@@ -411,9 +410,10 @@ img {
     0 0 0 1px rgba(15, 23, 42, 0.8);
   overflow: hidden;
 
-  align-self: center; /* 섹션 기준 중앙으로 */
+  align-self: center;         /* 그리드 영역 내에서 중앙 쪽 */
   margin-top: 8px;
   margin-bottom: 8px;
+  transform: translateY(24px); /* 섹션 기준으로 조금 더 아래로 */
 }
 
 /* 로고 */
@@ -563,6 +563,10 @@ img {
 
   .intro-slide-profile {
     padding: 20px 20px 16px;
+    transform: none;      /* 모바일에서는 평평하게 */
+    margin-top: 0;
+    margin-bottom: 0;
+    align-self: stretch;
   }
 
   .intro-mobile-indicator {
