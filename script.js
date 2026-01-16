@@ -92,23 +92,39 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================
    4) Projects 캐러셀
    ========================= */
+  /* =========================
+   4) Projects 캐러셀 (무한 루프)
+   ========================= */
   const projectTrack = document.querySelector(".project-track");
-  const projectCards = projectTrack
+  const originalCards = projectTrack
     ? Array.from(projectTrack.querySelectorAll(".project-card"))
     : [];
 
-  if (projectTrack && projectCards.length) {
+  if (projectTrack && originalCards.length) {
     const prevBtn = document.querySelector(".project-carousel-btn-prev");
     const nextBtn = document.querySelector(".project-carousel-btn-next");
 
-    let currentProjectIndex = 0;
+    // 1) 양 끝에 클론 추가: [lastClone, 1, 2, 3, ..., N, firstClone]
+    const firstClone = originalCards[0].cloneNode(true);
+    const lastClone = originalCards[originalCards.length - 1].cloneNode(true);
 
-    const CARD_GAP = 24; // styles.css의 .project-track gap과 동일해야 함
+    projectTrack.insertBefore(lastClone, originalCards[0]); // 맨 앞
+    projectTrack.appendChild(firstClone); // 맨 뒤
+
+    const slides = Array.from(projectTrack.querySelectorAll(".project-card"));
+    const CARD_GAP = 24; // styles.css .project-track gap과 동일하게 유지
+
+    // 2) 실제 시작 위치는 index = 1 (원본 1번 카드)
+    let currentProjectIndex = 1;
 
     function getCardWidth() {
-      if (!projectCards.length) return 0;
-      const cardRect = projectCards[0].getBoundingClientRect();
-      return cardRect.width + CARD_GAP;
+      if (!slides.length) return 0;
+      const rect = slides[0].getBoundingClientRect();
+      return rect.width + CARD_GAP;
+    }
+
+    function setTrackTransition(enabled) {
+      projectTrack.style.transition = enabled ? "transform 0.35s ease" : "none";
     }
 
     function updateProjectCarousel() {
@@ -118,31 +134,52 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function goToNext() {
-      currentProjectIndex =
-        (currentProjectIndex + 1) % projectCards.length; // 끝 → 처음 루프
+      setTrackTransition(true);
+      currentProjectIndex += 1;
       updateProjectCarousel();
     }
 
     function goToPrev() {
-      currentProjectIndex =
-        (currentProjectIndex - 1 + projectCards.length) %
-        projectCards.length; // 처음 → 끝 루프
+      setTrackTransition(true);
+      currentProjectIndex -= 1;
       updateProjectCarousel();
     }
 
-    if (nextBtn) {
-      nextBtn.addEventListener("click", goToNext);
-    }
-    if (prevBtn) {
-      prevBtn.addEventListener("click", goToPrev);
-    }
-
-    // 창 크기 변경 시 위치 재계산
-    window.addEventListener("resize", () => {
-      updateProjectCarousel();
+    // 3) 양쪽 클론에 도달하면 transition 끝난 뒤 진짜 카드 위치로 순간이동
+    projectTrack.addEventListener("transitionend", () => {
+      // 슬라이드 인덱스 기준:
+      // 0            : lastClone
+      // 1..N         : 실제 카드들
+      // slides.length-1 : firstClone
+      if (currentProjectIndex === slides.length - 1) {
+        // 맨 뒤 firstClone → 실제 1번 카드로 점프
+        setTrackTransition(false);
+        currentProjectIndex = 1;
+        updateProjectCarousel();
+        // 다음 프레임부터 다시 transition 켜기
+        requestAnimationFrame(() => setTrackTransition(true));
+      } else if (currentProjectIndex === 0) {
+        // 맨 앞 lastClone → 실제 마지막 카드로 점프
+        setTrackTransition(false);
+        currentProjectIndex = slides.length - 2;
+        updateProjectCarousel();
+        requestAnimationFrame(() => setTrackTransition(true));
+      }
     });
 
-    // 초기 1회 계산
+    if (nextBtn) nextBtn.addEventListener("click", goToNext);
+    if (prevBtn) prevBtn.addEventListener("click", goToPrev);
+
+    // 4) 창 크기 변경 시에도 현재 인덱스 기준으로 위치 재계산
+    window.addEventListener("resize", () => {
+      setTrackTransition(false);
+      updateProjectCarousel();
+      requestAnimationFrame(() => setTrackTransition(true));
+    });
+
+    // 5) 초기 위치 설정 (1번 카드가 가운데 오도록)
+    setTrackTransition(false);
     updateProjectCarousel();
+    requestAnimationFrame(() => setTrackTransition(true));
   }
 });
