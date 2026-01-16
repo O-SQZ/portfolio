@@ -1,5 +1,5 @@
 /* =========================
-   글로벌
+   Global
    ========================= */
 *,
 *::before,
@@ -29,7 +29,7 @@ img {
   display: block;
 }
 
-/* 스크롤 스냅 */
+/* 메인 스크롤 컨테이너 (섹션 스냅) */
 #page {
   flex: 1;
   overflow-y: auto;
@@ -38,7 +38,7 @@ img {
 }
 
 /* =========================
-   상단 네비게이션
+   Top Navigation
    ========================= */
 .top-nav {
   position: sticky;
@@ -83,6 +83,7 @@ img {
 
 .nav-title-brand {
   color: #ff8800;
+  font-weight: 700;
 }
 
 .nav-title-sub {
@@ -116,7 +117,7 @@ img {
   color: #f97316;
 }
 
-/* 모바일용 햄버거 버튼 */
+/* 모바일 햄버거 버튼 */
 .nav-menu-button {
   display: none;
   width: 32px;
@@ -138,7 +139,7 @@ img {
 }
 
 /* =========================
-   공통 섹션
+   공통 Section
    ========================= */
 .section {
   position: relative;
@@ -169,7 +170,7 @@ img {
 }
 
 /* =========================
-   INTRO
+   Intro
    ========================= */
 .section-intro .section-inner {
   max-width: 1120px;
@@ -200,9 +201,7 @@ img {
   letter-spacing: 0.08em;
 }
 
-/* Intro 레이아웃
-   - 데스크톱: 그리드 (main / stack / profile)
-   - 모바일: 가로 슬라이드 */
+/* 레이아웃 (데스크톱) */
 .intro-layout {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
@@ -211,7 +210,7 @@ img {
     "main profile"
     "stack stack";
   column-gap: 64px;
-  row-gap: 24px;
+  row-gap: 10px; /* 소개 - Stack 간격 축소 */
 }
 
 /* 슬라이드 공통 */
@@ -231,10 +230,10 @@ img {
   grid-area: profile;
 }
 
-/* 이름 영역 */
+/* 이름 */
 .intro-name-row {
   display: flex;
-  align-items: flex-end;
+  align-items: baseline; /* 하단 라인 맞추기 */
   gap: 14px;
   margin-bottom: 12px;
 }
@@ -246,7 +245,7 @@ img {
 }
 
 .intro-name-en {
-  font-size: 1.8rem; /* 한글 2.6rem의 약 70% */
+  font-size: 1.55rem; /* 2.6rem의 약 60% */
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -270,7 +269,7 @@ img {
   color: #e5e7eb;
 }
 
-/* 태그별 색 (프로젝트 태그와 연동 예정) */
+/* 태그별 색 (프로젝트와 연동 예정) */
 .tag-web {
   background: rgba(37, 99, 235, 0.28) !important;
   border-color: rgba(59, 130, 246, 0.55) !important;
@@ -286,7 +285,7 @@ img {
   border-color: rgba(248, 113, 113, 0.7) !important;
 }
 
-/* 소개 문장 */
+/* 소개 텍스트 */
 .intro-lead,
 .intro-current {
   font-size: 0.95rem;
@@ -310,7 +309,7 @@ img {
   margin: 10px 0 0;
 }
 
-/* 링크 chip */
+/* 링크 Chip */
 .intro-links {
   display: flex;
   flex-wrap: wrap;
@@ -365,7 +364,7 @@ img {
 
 /* Tech Stack */
 .stack {
-  margin-top: 12px;
+  margin-top: 4px; /* 간격 줄이기 */
 }
 
 .stack-title {
@@ -411,10 +410,13 @@ img {
     0 18px 40px rgba(15, 23, 42, 0.95),
     0 0 0 1px rgba(15, 23, 42, 0.8);
   overflow: hidden;
-  align-self: flex-start; /* 그리드 전체 높이만큼 늘어나지 않게 */
+
+  align-self: center; /* 섹션 기준 중앙으로 */
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
-/* 로고 이미지 강제 사이즈 */
+/* 로고 */
 .profile-avatar {
   display: flex;
   justify-content: center;
@@ -432,7 +434,7 @@ img {
   padding: 8px;
 }
 
-/* EXPERIENCE / EDUCATION */
+/* 경험/학력 */
 .profile-title {
   font-size: 0.95rem;
   letter-spacing: 0.18em;
@@ -464,14 +466,14 @@ img {
   margin-top: 18px;
 }
 
-/* EXPERIENCE / EDUCATION 사이 구분선 */
+/* 카드 내부 구분선 */
 .profile-divider {
   border: none;
   border-top: 1px solid rgba(148, 163, 184, 0.5);
   margin: 18px 0;
 }
 
-/* 모바일 인디케이터 (3페이지) */
+/* 모바일 인디케이터 (Intro 3페이지) */
 .intro-mobile-indicator {
   display: none;
   margin-top: 14px;
@@ -493,7 +495,7 @@ img {
 }
 
 /* =========================
-   반응형
+   Breakpoints
    ========================= */
 @media (min-width: 768px) {
   .section {
@@ -508,7 +510,7 @@ img {
   }
 }
 
-/* 모바일: Intro를 가로 3페이지 슬라이드로 분리 + 모바일 네비 */
+/* 모바일: Intro 슬라이드 + 모바일 네비 */
 @media (max-width: 767px) {
   .top-nav {
     padding-inline: 16px;
@@ -588,6 +590,6 @@ img {
   }
 
   .profile-item-desc-nowrap {
-    white-space: normal; /* 모바일에서는 줄바꿈 허용 */
+    white-space: normal; /* 모바일에선 줄바꿈 허용 */
   }
 }
