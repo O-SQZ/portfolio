@@ -765,6 +765,10 @@ img {
 
 .section-blog .section-inner {
   max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+  margin-top: 40px; /* 섹션 전체를 조금 아래로 */
 }
 
 .blog-header {
@@ -776,7 +780,7 @@ img {
   margin-bottom: 8px;
 }
 
-.blog-header {
+.blog-header .section-desc {
   margin: 0 auto;
   max-width: 640px;
 }
@@ -788,7 +792,7 @@ img {
   gap: 20px;
 }
 
-/* 카드 공통 */
+/* 카드 공통 – 높이 넉넉하게 */
 .blog-card {
   border-radius: 20px;
   background: radial-gradient(
@@ -803,23 +807,28 @@ img {
   overflow: hidden;
   display: flex;
   flex-direction: row;
+  min-height: 220px; /* 기존보다 거의 두 배 느낌 */
 }
 
 /* 썸네일 영역 */
 .blog-thumb {
-  width: 32%;
-  min-width: 110px;
+  flex: 0 0 160px;
   background: radial-gradient(circle at top, #0f172a, #020617);
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* 실제 썸네일 이미지 */
+.blog-thumb-img,
 .blog-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* 썸네일 없을 때 */
+/* 썸네일 없을 때 플레이스홀더 */
 .blog-thumb-placeholder::before {
   content: "Blog";
   position: absolute;
@@ -834,7 +843,7 @@ img {
 /* 텍스트 영역 */
 .blog-body {
   flex: 1;
-  padding: 12px 14px 12px;
+  padding: 14px 16px 14px;
   display: flex;
   flex-direction: column;
 }
@@ -887,20 +896,26 @@ img {
   opacity: 0.7;
 }
 
-/* 반응형: 태블릿 → 2열, 모바일 → 1열 + 세로 배치 */
+/* 반응형: 태블릿 → 1열 */
 @media (max-width: 1024px) {
   .blog-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 }
 
+/* 반응형: 모바일 – 세로 카드 1개씩 */
 @media (max-width: 767px) {
   .section-blog {
     padding-top: 48px;
   }
 
+  .section-blog .section-inner {
+    margin-top: 24px;
+  }
+
   .blog-card {
     flex-direction: column;
+    min-height: 0;
   }
 
   .blog-thumb {
