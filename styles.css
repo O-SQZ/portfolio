@@ -364,7 +364,7 @@ img {
 
 /* Tech Stack */
 .stack {
-  margin-top: 0; /* 기본은 0, 데스크톱에서만 더 당김 */
+  margin-top: -10; /* 기본은 0, 데스크톱에서만 더 당김 */
 }
 
 .stack-title {
