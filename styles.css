@@ -502,8 +502,10 @@ img {
    ========================= */
 
 .section-projects {
-  align-items: flex-start;   /* 가운데 → 위쪽 기준으로 */
-  padding-top: 100px;         /* 필요하면 숫자 줄이거나 늘려서 미세조정 */
+  align-items: flex-start;
+  /* 가운데 → 위쪽 기준으로 */
+  padding-top: 100px;
+  /* 필요하면 숫자 줄이거나 늘려서 미세조정 */
 }
 
 .section-projects .section-inner {
@@ -724,26 +726,32 @@ img {
 @media (max-width: 767px) {
   .project-carousel {
     gap: 8px;
-    justify-content: center; /* 좌우 버튼 + 카드 중앙 배치 */
+    justify-content: center;
+    /* 좌우 버튼 + 카드 중앙 배치 */
   }
 
   /* 카드가 화면 안에 여유 있게 들어오도록 */
   .project-window {
-    overflow: visible; /* 오른쪽 잘리지 않게 */
+    overflow: visible;
+    /* 오른쪽 잘리지 않게 */
   }
 
   .project-track {
-    padding: 0 8px; /* 좌우 여백 조금 줄이기 */
+    padding: 0 8px;
+    /* 좌우 여백 조금 줄이기 */
   }
 
   .project-card {
-    flex: 0 0 72vw;      /* 화면의 약 70~75% 너비 → 1장만 보이게 + 버튼 공간 확보 */
+    flex: 0 0 72vw;
+    /* 화면의 약 70~75% 너비 → 1장만 보이게 + 버튼 공간 확보 */
     max-width: 72vw;
-    min-height: 360px;   /* 세로는 그대로 */
+    min-height: 360px;
+    /* 세로는 그대로 */
   }
 
   .project-thumb {
-    aspect-ratio: 16 / 10; /* 썸네일은 현재 비율 유지 */
+    aspect-ratio: 16 / 10;
+    /* 썸네일은 현재 비율 유지 */
   }
 
   /* 모바일에서 버튼 조금 작게 */
@@ -760,7 +768,7 @@ img {
 
 .section-blog {
   align-items: flex-start;
-  padding-top: 30px;
+  padding-top: 20px;
 }
 
 .section-blog .section-inner {
@@ -768,7 +776,8 @@ img {
   width: 100%;
   margin: 0 auto;
   text-align: left;
-  margin-top: 40px; /* 섹션 전체를 조금 아래로 */
+  margin-top: 40px;
+  /* 섹션 전체를 조금 아래로 */
 }
 
 .blog-header {
@@ -795,11 +804,9 @@ img {
 /* 카드 공통 – 높이 넉넉하게 */
 .blog-card {
   border-radius: 20px;
-  background: radial-gradient(
-    circle at top left,
-    rgba(15, 23, 42, 0.98),
-    rgba(15, 23, 42, 0.96)
-  );
+  background: radial-gradient(circle at top left,
+      rgba(15, 23, 42, 0.98),
+      rgba(15, 23, 42, 0.96));
   border: 1px solid rgba(30, 64, 175, 0.7);
   box-shadow:
     0 10px 24px rgba(15, 23, 42, 0.9),
@@ -807,27 +814,32 @@ img {
   overflow: hidden;
   display: flex;
   flex-direction: row;
-  min-height: 220px; /* 기존보다 거의 두 배 느낌 */
+  min-height: 220px;
+  /* 기존보다 거의 두 배 느낌 */
 }
 
 /* 썸네일 영역 */
 .blog-thumb {
-  flex: 0 0 140px;  /* 기존 160px → 조금 줄임 */
+  flex: 0 0 140px;
+  /* 기존 160px → 조금 줄임 */
   max-width: 140px;
   background: radial-gradient(circle at top, #0f172a, #020617);
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;          /* 안쪽 여백 줘서 이미지 전체 보이게 */
+  padding: 8px;
+  /* 안쪽 여백 줘서 이미지 전체 보이게 */
 }
 
 /* 실제 썸네일 이미지 */
 .blog-thumb-img,
 .blog-thumb img {
   width: 100%;
-  height: auto;          /* 비율 유지 */
-  object-fit: contain;   /* 잘리지 않고 전체가 보이도록 */
+  height: auto;
+  /* 비율 유지 */
+  object-fit: contain;
+  /* 잘리지 않고 전체가 보이도록 */
   border-radius: 12px;
 }
 
@@ -988,12 +1000,87 @@ img {
   .blog-thumb {
     width: 100%;
     max-width: none;
-    height: auto;        /* 고정 높이 제거 */
-    padding: 8px 8px 0;  /* 위쪽에만 살짝 여백 */
+    height: auto;
+    /* 고정 높이 제거 */
+    padding: 8px 8px 0;
+    /* 위쪽에만 살짝 여백 */
   }
 
   .blog-body {
     padding: 10px 12px 12px;
+  }
+}
+
+/* =========================
+   Wargame
+   ========================= */
+
+.section-wargame {
+  align-items: flex-start;
+  padding-top: 40px;
+}
+
+.section-wargame .section-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.wargame-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.wargame-header .section-heading {
+  margin-bottom: 8px;
+}
+
+.wargame-header .section-desc {
+  margin: 0 auto;
+  max-width: 520px;
+}
+
+/* Dreamhack 카드 2장 세로 배치 */
+.wargame-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+}
+
+.wargame-stat-img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 22px;
+  background: #020617;
+  box-shadow:
+    0 14px 30px rgba(15, 23, 42, 0.9),
+    0 0 0 1px rgba(15, 23, 42, 0.8);
+}
+
+/* 아래 프로필 이동 버튼 재사용 */
+.wargame-more-wrapper {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+}
+
+.wargame-more-button {
+  /* 필요하면 Wargame 전용 여백/크기만 살짝 조정 */
+  padding-inline: 30px;
+}
+
+/* 모바일에서 여백만 약간 조정 */
+@media (max-width: 767px) {
+  .section-wargame {
+    padding-top: 48px;
+  }
+
+  .wargame-stat-img {
+    max-width: 100%;
+  }
+
+  .wargame-more-wrapper {
+    margin-top: 24px;
   }
 }
 
