@@ -48,11 +48,9 @@ img {
   align-items: center;
   justify-content: space-between;
   padding: 12px 24px;
-  background: linear-gradient(
-    90deg,
-    rgba(15, 23, 42, 0.98),
-    rgba(15, 23, 42, 0.9)
-  );
+  background: linear-gradient(90deg,
+      rgba(15, 23, 42, 0.98),
+      rgba(15, 23, 42, 0.9));
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(148, 163, 184, 0.2);
 }
@@ -143,7 +141,8 @@ img {
    ========================= */
 .section {
   position: relative;
-  min-height: calc(100vh - 64px); /* 상단 네비 높이 보정 */
+  min-height: calc(100vh - 64px);
+  /* 상단 네비 높이 보정 */
   scroll-snap-align: start;
   display: flex;
   align-items: center;
@@ -210,7 +209,8 @@ img {
     "main profile"
     "stack stack";
   column-gap: 64px;
-  row-gap: 0; /* 소개 - Stack 간격 거의 붙이기 */
+  row-gap: 0;
+  /* 소개 - Stack 간격 거의 붙이기 */
 }
 
 /* 슬라이드 공통 */
@@ -233,8 +233,10 @@ img {
 /* 이름 */
 .intro-name-row {
   display: flex;
-  align-items: baseline; /* 하단 라인 맞추기 */
-  gap: 7px;             /* 간격 절반으로 */
+  align-items: baseline;
+  /* 하단 라인 맞추기 */
+  gap: 7px;
+  /* 간격 절반으로 */
   margin-bottom: 12px;
 }
 
@@ -245,9 +247,11 @@ img {
 }
 
 .intro-name-en {
-  font-size: 1.55rem; /* 2.6rem의 약 60% */
+  font-size: 1.55rem;
+  /* 2.6rem의 약 60% */
   font-weight: 600;
-  letter-spacing: 0.16em; /* 자간 조금 줄임 */
+  letter-spacing: 0.16em;
+  /* 자간 조금 줄임 */
   text-transform: uppercase;
   color: #d1d5db;
 }
@@ -266,7 +270,8 @@ img {
   border-radius: 999px;
   border: 1px solid transparent;
   color: #f9fafb;
-  text-shadow: 0 0 4px rgba(15, 23, 42, 0.9); /* 가독성 */
+  text-shadow: 0 0 4px rgba(15, 23, 42, 0.9);
+  /* 가독성 */
 }
 
 /* 태그별 색 + 그라데이션 */
@@ -324,11 +329,9 @@ img {
   padding: 7px 14px;
   border-radius: 999px;
   border: 1px solid rgba(148, 163, 184, 0.6);
-  background: radial-gradient(
-    circle at top left,
-    rgba(15, 23, 42, 0.9),
-    rgba(15, 23, 42, 0.95)
-  );
+  background: radial-gradient(circle at top left,
+      rgba(15, 23, 42, 0.9),
+      rgba(15, 23, 42, 0.95));
   color: #e5e7eb;
   font-size: 0.9rem;
   text-decoration: none;
@@ -337,11 +340,9 @@ img {
 
 .chip:hover {
   border-color: rgba(248, 113, 22, 0.9);
-  background: radial-gradient(
-    circle at top left,
-    rgba(30, 64, 175, 0.6),
-    rgba(15, 23, 42, 0.98)
-  );
+  background: radial-gradient(circle at top left,
+      rgba(30, 64, 175, 0.6),
+      rgba(15, 23, 42, 0.98));
   transform: translateY(-1px);
 }
 
@@ -364,7 +365,8 @@ img {
 
 /* Tech Stack */
 .stack {
-  margin-top: -10; /* 기본은 0, 데스크톱에서만 더 당김 */
+  margin-top: -10;
+  /* 기본은 0, 데스크톱에서만 더 당김 */
 }
 
 .stack-title {
@@ -400,21 +402,21 @@ img {
 .intro-profile {
   padding: 24px 24px 20px;
   border-radius: 28px;
-  background: radial-gradient(
-    circle at top right,
-    rgba(30, 64, 175, 0.45),
-    rgba(15, 23, 42, 0.96)
-  );
+  background: radial-gradient(circle at top right,
+      rgba(30, 64, 175, 0.45),
+      rgba(15, 23, 42, 0.96));
   border: 1px solid rgba(148, 163, 184, 0.4);
   box-shadow:
     0 18px 40px rgba(15, 23, 42, 0.95),
     0 0 0 1px rgba(15, 23, 42, 0.8);
   overflow: hidden;
 
-  align-self: center;         /* 그리드 영역 중앙 정렬 */
+  align-self: center;
+  /* 그리드 영역 중앙 정렬 */
   margin-top: 8px;
   margin-bottom: 8px;
-  transform: translateY(40px); /* 섹션 기준 더 아래로 (40:60 → 50:50쯤) */
+  transform: translateY(40px);
+  /* 섹션 기준 더 아래로 (40:60 → 50:50쯤) */
 }
 
 /* 로고 */
@@ -463,7 +465,7 @@ img {
   white-space: nowrap;
 }
 
-.profile-block + .profile-block {
+.profile-block+.profile-block {
   margin-top: 18px;
 }
 
@@ -496,6 +498,236 @@ img {
 }
 
 /* =========================
+   Projects
+   ========================= */
+
+.section-projects .section-inner {
+  max-width: 1120px;
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.projects-header .section-heading {
+  margin-bottom: 8px;
+}
+
+.projects-header .section-desc {
+  margin: 0 auto;
+  max-width: 520px;
+}
+
+/* 캐러셀 전체 래퍼 */
+.project-carousel {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* 좌/우 버튼 */
+.project-carousel-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background: rgba(15, 23, 42, 0.95);
+  color: #e5e7eb;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.4rem;
+  line-height: 1;
+  transition: background 0.18s ease, border-color 0.18s ease,
+    transform 0.08s ease;
+}
+
+.project-carousel-btn:hover {
+  background: rgba(30, 64, 175, 0.9);
+  border-color: rgba(129, 140, 248, 0.9);
+  transform: translateY(-1px);
+}
+
+/* 카드가 보이는 창 */
+.project-window {
+  overflow: hidden;
+  flex: 1;
+}
+
+/* 트랙: 좌우로 이동 */
+.project-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.35s ease;
+}
+
+/* 카드 하나 */
+.project-card {
+  flex: 0 0 320px;
+  max-width: 320px;
+  border-radius: 24px;
+  background: radial-gradient(circle at top left,
+      rgba(15, 23, 42, 0.98),
+      rgba(15, 23, 42, 0.96));
+  border: 1px solid rgba(30, 64, 175, 0.7);
+  box-shadow:
+    0 14px 30px rgba(15, 23, 42, 0.9),
+    0 0 0 1px rgba(15, 23, 42, 0.8);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 썸네일 영역 */
+.project-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  overflow: hidden;
+}
+
+.project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 썸네일이 없는 Placeholder */
+.project-thumb-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top left, #0f172a, #020617);
+}
+
+.project-placeholder-label {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px dashed rgba(148, 163, 184, 0.7);
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+/* 카드 내용 */
+.project-body {
+  padding: 14px 16px 8px;
+  flex: 1;
+}
+
+.project-title {
+  font-size: 1rem;
+  color: #f9fafb;
+  margin: 0 0 6px;
+}
+
+.project-desc {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  margin: 0 0 12px;
+}
+
+/* 태그 */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-tags li {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(55, 65, 81, 0.9);
+  color: #e5e7eb;
+}
+
+/* 하단 영역 */
+.project-footer {
+  padding: 10px 16px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border-top: 1px solid rgba(31, 41, 55, 0.9);
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: #bfdbfe;
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(37, 99, 235, 0.8);
+  white-space: nowrap;
+}
+
+.project-link:hover {
+  background: rgba(37, 99, 235, 0.9);
+  color: #eff6ff;
+}
+
+.project-link-icon {
+  font-size: 0.9rem;
+}
+
+/* 비활성 링크 텍스트 */
+.project-link-disabled {
+  font-size: 0.8rem;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+/* 상태 뱃지 */
+.project-status {
+  font-size: 0.75rem;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.project-status-done {
+  border-color: rgba(52, 211, 153, 0.9);
+  color: #a7f3d0;
+  background: rgba(6, 95, 70, 0.5);
+}
+
+.project-status-planning {
+  border-color: rgba(234, 179, 8, 0.9);
+  color: #facc15;
+  background: rgba(113, 63, 18, 0.5);
+}
+
+/* 반응형: 카드 너비 조정 */
+@media (max-width: 1024px) {
+  .project-card {
+    flex: 0 0 280px;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 767px) {
+  .project-carousel {
+    gap: 8px;
+  }
+
+  .project-card {
+    flex: 0 0 85vw;
+    max-width: 85vw;
+  }
+}
+
+/* =========================
    Breakpoints
    ========================= */
 @media (min-width: 768px) {
@@ -506,7 +738,8 @@ img {
 
   /* 데스크톱에서 소개-Stack 간격 더 줄이기 */
   .stack {
-    margin-top: -20px; /* 소개 영역 끝과 더 가까이 (기존 간격의 ~30% 수준) */
+    margin-top: -20px;
+    /* 소개 영역 끝과 더 가까이 (기존 간격의 ~30% 수준) */
   }
 }
 
@@ -569,7 +802,8 @@ img {
 
   .intro-slide-profile {
     padding: 20px 20px 16px;
-    transform: none;      /* 모바일에서는 평평하게 */
+    transform: none;
+    /* 모바일에서는 평평하게 */
     margin-top: 0;
     margin-bottom: 0;
     align-self: stretch;
@@ -600,6 +834,7 @@ img {
   }
 
   .profile-item-desc-nowrap {
-    white-space: normal; /* 모바일에선 줄바꿈 허용 */
+    white-space: normal;
+    /* 모바일에선 줄바꿈 허용 */
   }
 }
