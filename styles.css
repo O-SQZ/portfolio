@@ -103,3 +103,215 @@ body {
 .section-wargame {
   background: linear-gradient(180deg, #020617, #020617);
 }
+
+
+/*intro 부분 추가 css*/
+/* Intro 레이아웃 */
+.intro-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.intro-main {
+  flex: 2;
+}
+
+.intro-profile {
+  flex: 1;
+  max-width: 360px;
+}
+
+/* 상태 뱃지 */
+.status-row {
+  margin-bottom: 10px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  background: rgba(16, 185, 129, 0.1);
+  color: #6ee7b7;
+}
+
+/* 상태값에 따라 색 바꾸고 싶을 때 */
+.status-badge[data-status="seeking"] {
+  border-color: rgba(52, 211, 153, 0.4);
+  background: rgba(16, 185, 129, 0.16);
+}
+
+.status-badge[data-status="changing"] {
+  border-color: rgba(251, 191, 36, 0.4);
+  background: rgba(245, 158, 11, 0.12);
+  color: #facc15;
+}
+
+.status-badge[data-status="working"] {
+  border-color: rgba(96, 165, 250, 0.4);
+  background: rgba(59, 130, 246, 0.12);
+  color: #bfdbfe;
+}
+
+/* Intro 타이포 */
+.intro-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.intro-title {
+  font-size: 2.4rem;
+  margin: 0;
+}
+
+.intro-name-en {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.intro-subtitle {
+  font-size: 1rem;
+  margin: 6px 0 16px;
+  color: var(--muted);
+}
+
+.intro-text {
+  max-width: 520px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.intro-current {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0 0 16px;
+}
+
+/* 링크 버튼 */
+.intro-links {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #f97316;
+  color: #fed7aa;
+  font-size: 0.8rem;
+  text-decoration: none;
+  background: rgba(249, 115, 22, 0.12);
+}
+
+.chip:hover {
+  background: rgba(249, 115, 22, 0.2);
+}
+
+.chip-outline {
+  border-color: rgba(148, 163, 184, 0.6);
+  color: var(--text);
+  background: transparent;
+}
+
+/* Tech Stack */
+.skills {
+  margin-top: 28px;
+}
+
+.section-title-small {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+
+.stack-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stack-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stack-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.stack-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.stack-pill {
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: rgba(15, 23, 42, 0.9);
+}
+
+/* 오른쪽 프로필 카드 */
+.avatar-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #111827;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+.profile-block {
+  margin-top: 12px;
+}
+
+.profile-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  display: grid;
+  gap: 8px;
+}
+
+.profile-title {
+  display: block;
+  font-size: 0.85rem;
+}
+
+.profile-desc {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* 데스크톱에서 2단 레이아웃 */
+@media (min-width: 768px) {
+  .intro-layout {
+    flex-direction: row;
+    align-items: center;
+  }
+}
