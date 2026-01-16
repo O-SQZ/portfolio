@@ -12,11 +12,17 @@
       <div class="nav-left">
         <span class="nav-logo-dot"></span>
         <span class="nav-title">
-          <span class="nav-title-osqz">OSQZ</span>
-          <span class="nav-title-divider">•</span>
-          <span class="nav-title-sub">Security Portfolio</span>
+          <span class="nav-title-brand">OSQZ</span>
+          <span class="nav-title-sub">SECURITY PORTFOLIO</span>
         </span>
       </div>
+
+      <!-- 모바일용 햄버거 -->
+      <button class="nav-menu-button" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
       <nav class="nav-links">
         <a href="#intro" class="nav-link nav-link-active">Intro</a>
@@ -24,11 +30,6 @@
         <a href="#blog" class="nav-link">Blog</a>
         <a href="#wargame" class="nav-link">Wargame</a>
       </nav>
-
-      <!-- 모바일 전용 햄버거 -->
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
     </header>
 
     <main id="page">
@@ -38,10 +39,10 @@
           <!-- 상태 뱃지 -->
           <div class="status-badge">
             <span class="status-dot"></span>
-            <span class="status-text">구직중 · Open to Work</span>
+            <span class="status-text">구직중 · OPEN TO WORK</span>
           </div>
 
-          <!-- Intro 레이아웃 -->
+          <!-- Intro 레이아웃: 데스크톱=그리드, 모바일=가로 슬라이드 -->
           <div class="intro-layout">
             <!-- Slide 1: 소개 -->
             <div class="intro-slide intro-slide-main">
@@ -57,20 +58,25 @@
               </div>
 
               <p class="intro-lead">
-                웹 해킹과 사회공학 기반 공격 시나리오를 이해하고, AI를 포함한 자동화 도구로 반복적인
-                보안 점검을 줄이며, 사람을 가장 큰 취약점으로 가정한 보안 체계를 고민하고 있습니다.
+                웹 해킹과 사회공학 기반 공격 시나리오를 이해하고, AI를 포함한
+                자동화 도구로 반복적인 보안 점검을 줄이며, 사람을 가장 큰
+                취약점으로 가정한 보안 체계를 고민하고 있습니다.
               </p>
 
               <hr class="intro-divider" />
 
               <p class="intro-current">
-                현재는 정보보안기사 실기 / 정보처리기사 필기 준비와 함께, 웹 보안을 위한 AI 활용과
-                사회공학기법 관련 프로젝트를 진행 중입니다.
+                현재는 정보보안기사 실기 / 정보처리기사 필기 준비와 함께, 웹
+                보안을 위한 AI 활용과 사회공학기법 관련 프로젝트를 진행 중입니다.
               </p>
 
               <!-- 링크 뱃지 -->
               <div class="intro-links">
-                <a href="mailto:max5131004@gmail.com" class="chip" target="_blank">
+                <a
+                  href="mailto:max5131004@gmail.com"
+                  class="chip"
+                  target="_blank"
+                >
                   <span class="chip-icon-circle">
                     <img src="assets/icon-gmail.png" alt="Gmail" />
                   </span>
@@ -182,7 +188,10 @@
             </div>
 
             <!-- Slide 3: 오른쪽 카드 -->
-            <aside class="intro-slide intro-slide-profile intro-profile">
+            <aside
+              class="intro-slide intro-slide-profile intro-profile"
+              aria-label="Profile"
+            >
               <div class="profile-avatar">
                 <img src="assets/OSQZ_logo.png" alt="OSQZ logo" />
               </div>
