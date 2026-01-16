@@ -88,4 +88,61 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 초기 한 번 계산
   updateActiveOnScroll();
+
+  /* =========================
+   4) Projects 캐러셀
+   ========================= */
+  const projectTrack = document.querySelector(".project-track");
+  const projectCards = projectTrack
+    ? Array.from(projectTrack.querySelectorAll(".project-card"))
+    : [];
+
+  if (projectTrack && projectCards.length) {
+    const prevBtn = document.querySelector(".project-carousel-btn-prev");
+    const nextBtn = document.querySelector(".project-carousel-btn-next");
+
+    let currentProjectIndex = 0;
+
+    const CARD_GAP = 24; // styles.css의 .project-track gap과 동일해야 함
+
+    function getCardWidth() {
+      if (!projectCards.length) return 0;
+      const cardRect = projectCards[0].getBoundingClientRect();
+      return cardRect.width + CARD_GAP;
+    }
+
+    function updateProjectCarousel() {
+      const width = getCardWidth();
+      projectTrack.style.transform = `translateX(-${currentProjectIndex * width
+        }px)`;
+    }
+
+    function goToNext() {
+      currentProjectIndex =
+        (currentProjectIndex + 1) % projectCards.length; // 끝 → 처음 루프
+      updateProjectCarousel();
+    }
+
+    function goToPrev() {
+      currentProjectIndex =
+        (currentProjectIndex - 1 + projectCards.length) %
+        projectCards.length; // 처음 → 끝 루프
+      updateProjectCarousel();
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", goToNext);
+    }
+    if (prevBtn) {
+      prevBtn.addEventListener("click", goToPrev);
+    }
+
+    // 창 크기 변경 시 위치 재계산
+    window.addEventListener("resize", () => {
+      updateProjectCarousel();
+    });
+
+    // 초기 1회 계산
+    updateProjectCarousel();
+  }
 });
