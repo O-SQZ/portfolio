@@ -234,7 +234,7 @@ img {
 .intro-name-row {
   display: flex;
   align-items: baseline; /* 하단 라인 맞추기 */
-  gap: 14px;
+  gap: 7px;             /* 간격 절반으로 */
   margin-bottom: 12px;
 }
 
@@ -247,9 +247,9 @@ img {
 .intro-name-en {
   font-size: 1.55rem; /* 2.6rem의 약 60% */
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.16em; /* 자간 조금 줄임 */
   text-transform: uppercase;
-  color: #9ca3af;
+  color: #d1d5db;
 }
 
 /* 태그 */
@@ -265,23 +265,24 @@ img {
   padding: 4px 12px;
   border-radius: 999px;
   border: 1px solid transparent;
-  color: #e5e7eb;
+  color: #f9fafb;
+  text-shadow: 0 0 4px rgba(15, 23, 42, 0.9); /* 가독성 */
 }
 
 /* 태그별 색 + 그라데이션 */
 .tag-web {
-  background: linear-gradient(135deg, #1d4ed8, #22c1f1);
-  border-color: rgba(59, 130, 246, 0.8);
+  background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
+  border-color: rgba(59, 130, 246, 0.9);
 }
 
 .tag-auto {
-  background: linear-gradient(135deg, #16a34a, #4ade80);
-  border-color: rgba(34, 197, 94, 0.85);
+  background: linear-gradient(135deg, #15803d, #22c55e);
+  border-color: rgba(34, 197, 94, 0.9);
 }
 
 .tag-se {
-  background: linear-gradient(135deg, #f97316, #fb7185);
-  border-color: rgba(248, 113, 22, 0.9);
+  background: linear-gradient(135deg, #b91c1c, #f97316);
+  border-color: rgba(248, 113, 22, 0.95);
 }
 
 /* 소개 텍스트 */
@@ -363,7 +364,7 @@ img {
 
 /* Tech Stack */
 .stack {
-  margin-top: 0; /* 소개와 거의 붙게 */
+  margin-top: 0; /* 기본은 0, 데스크톱에서만 더 당김 */
 }
 
 .stack-title {
@@ -371,7 +372,7 @@ img {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #f9fafb;
-  margin: 10px 0 12px;
+  margin: 6px 0 12px;
 }
 
 .stack-group {
@@ -410,10 +411,10 @@ img {
     0 0 0 1px rgba(15, 23, 42, 0.8);
   overflow: hidden;
 
-  align-self: center;         /* 그리드 영역 내에서 중앙 쪽 */
+  align-self: center;         /* 그리드 영역 중앙 정렬 */
   margin-top: 8px;
   margin-bottom: 8px;
-  transform: translateY(24px); /* 섹션 기준으로 조금 더 아래로 */
+  transform: translateY(40px); /* 섹션 기준 더 아래로 (40:60 → 50:50쯤) */
 }
 
 /* 로고 */
@@ -501,6 +502,11 @@ img {
   .section {
     padding-left: 40px;
     padding-right: 40px;
+  }
+
+  /* 데스크톱에서 소개-Stack 간격 더 줄이기 */
+  .stack {
+    margin-top: -20px; /* 소개 영역 끝과 더 가까이 (기존 간격의 ~30% 수준) */
   }
 }
 
