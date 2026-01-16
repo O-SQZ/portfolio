@@ -158,16 +158,36 @@ img {
   text-transform: uppercase;
 }
 
-/* Intro 레이아웃 */
+/* Intro 레이아웃
+   - 데스크톱: 그리드 (main+stack / profile)
+   - 모바일: 가로 슬라이드 */
 .intro-layout {
-  display: flex;
-  align-items: flex-start;
-  gap: 64px;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "main profile"
+    "stack profile";
+  column-gap: 64px;
+  row-gap: 24px;
 }
 
-/* 왼쪽 메인 */
-.intro-main {
-  flex: 2;
+/* 공통 slide */
+.intro-slide {
+  position: relative;
+}
+
+/* 슬라이드 영역 정의 */
+.intro-slide-main {
+  grid-area: main;
+}
+
+.intro-slide-stack {
+  grid-area: stack;
+}
+
+.intro-slide-profile {
+  grid-area: profile;
 }
 
 /* 이름 영역 */
@@ -185,28 +205,44 @@ img {
 }
 
 .intro-name-en {
-  font-size: 0.7em; /* 한글 이름의 70% */
+  font-size: 1.8rem; /* 한글 2.6rem의 약 70% */
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #9ca3af;
 }
 
-/* 태그 */
+/* 태그 (웹 보안 / 보안 자동화 / 사회공학기법) */
 .intro-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   font-size: 0.9rem;
-  color: #e5e7eb;
   margin-bottom: 18px;
 }
 
 .intro-tags span {
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid rgba(148, 163, 184, 0.4);
+  border: 1px solid rgba(15, 23, 42, 0.9);
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+}
+
+/* 태그별 색상 (프로젝트 태그 연동용) */
+.tag-web {
+  background: rgba(37, 99, 235, 0.28);
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+.tag-auto {
+  background: rgba(234, 179, 8, 0.28);
+  border-color: rgba(234, 179, 8, 0.6);
+}
+
+.tag-se {
+  background: rgba(244, 63, 94, 0.28);
+  border-color: rgba(248, 113, 113, 0.7);
 }
 
 /* 소개 문장 */
@@ -238,7 +274,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin: 26px 0 32px;
+  margin: 26px 0 0;
 }
 
 .chip {
@@ -314,8 +350,6 @@ img {
 
 /* 오른쪽 프로필 카드 */
 .intro-profile {
-  flex: 1;
-  max-width: 360px;
   padding: 24px 24px 20px;
   border-radius: 28px;
   background: radial-gradient(circle at top right, rgba(30, 64, 175, 0.45), rgba(15, 23, 42, 0.96));
@@ -342,11 +376,6 @@ img {
   object-fit: contain;
   background: rgba(15, 23, 42, 0.7);
   padding: 8px;
-}
-
-/* 혹시 다른 이미지가 들어와도 카드 안에서만 표시 */
-.intro-profile img {
-  max-width: 100%;
 }
 
 /* EXPERIENCE / EDUCATION */
@@ -388,7 +417,7 @@ img {
   margin: 18px 0;
 }
 
-/* 모바일 인디케이터 */
+/* 모바일 인디케이터 (3페이지) */
 .intro-mobile-indicator {
   display: none;
   margin-top: 14px;
@@ -420,14 +449,11 @@ img {
 
 @media (max-width: 1024px) {
   .intro-layout {
-    gap: 40px;
-  }
-
-  .intro-profile {
-    max-width: 320px;
+    column-gap: 40px;
   }
 }
 
+/* 모바일: Intro를 가로 3페이지 슬라이드로 분리 */
 @media (max-width: 767px) {
   .top-nav {
     padding-inline: 16px;
@@ -441,22 +467,28 @@ img {
     padding: 72px 20px 32px;
   }
 
-  /* Intro: 좌우 슬라이드 */
+  .section-inner {
+    max-width: 100%;
+  }
+
   .intro-layout {
+    display: flex;
     gap: 16px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
   }
 
-  .intro-main,
-  .intro-profile {
+  .intro-slide {
     flex: 0 0 100%;
     max-width: 100%;
     scroll-snap-align: start;
+    max-height: calc(100vh - 120px); /* 상단 네비/패딩 고려 */
+    overflow-y: auto; /* 각 슬라이드 내에서 세로 스크롤 가능 */
+    padding-right: 4px;
   }
 
-  .intro-profile {
-    margin-top: 12px;
+  .intro-slide-profile {
+    padding: 20px 20px 16px;
   }
 
   .intro-mobile-indicator {
@@ -484,6 +516,6 @@ img {
   }
 
   .profile-item-desc-nowrap {
-    white-space: normal; /* 모바일에선 줄바꿈 허용 */
+    white-space: normal; /* 모바일에서는 줄바꿈 허용 */
   }
 }
