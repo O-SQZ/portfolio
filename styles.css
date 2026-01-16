@@ -501,6 +501,11 @@ img {
    Projects
    ========================= */
 
+.section-projects {
+  align-items: flex-start;   /* 가운데 → 위쪽 기준으로 */
+  padding-top: 32px;         /* 필요하면 숫자 줄이거나 늘려서 미세조정 */
+}
+
 .section-projects .section-inner {
   max-width: 1120px;
 }
