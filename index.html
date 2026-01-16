@@ -30,8 +30,6 @@
               </span>
             </div>
 
-            <p class="intro-label">Security Portfolio</p>
-
             <h1 class="intro-title">
               김주형
               <span class="intro-name-en">KIM JUHYEONG</span>
@@ -43,34 +41,41 @@
 
             <!-- 회사 입장에서 보는 한 줄 -->
             <p class="intro-text">
-              웹 해킹과 사회공학 기반 공격 시나리오를 이해하고,
-              AI를 포함한 자동화 도구로 반복적인 보안 점검을 줄이며,
-              사람을 가장 큰 취약점으로 가정한 보안 체계를 고민하고 있습니다.
+              웹 해킹과 사회공학 기반 공격 시나리오를 이해하고, AI를 포함한
+              자동화 도구로 반복적인 보안 점검을 줄이며, 사람을 가장 큰
+              취약점으로 가정한 보안 체계를 고민하고 있습니다.
             </p>
+
+            <hr class="intro-divider" />
 
             <!-- 현재 상태 -->
             <p class="intro-current">
-              현재는 정보보안기사 실기 / 정보처리기사 필기 준비와 함께,
-              웹 보안을 위한 AI 활용과 사회공학기법 관련 프로젝트를 진행 중입니다.
+              현재는 정보보안기사 실기 / 정보처리기사 필기 준비와 함께, 웹
+              보안을 위한 AI 활용과 사회공학기법 관련 프로젝트를 진행 중입니다.
             </p>
 
             <!-- 링크들 -->
             <div class="intro-links">
-              <a href="mailto:osqz7085@gmail.com" class="chip">이메일</a>
+              <a href="mailto:max5131004@gmail.com" class="chip">
+                <span class="chip-icon chip-icon-mail"></span>
+                이메일
+              </a>
               <a
                 href="https://github.com/O-SQZ"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="chip"
               >
+                <span class="chip-icon chip-icon-github"></span>
                 GitHub
               </a>
               <a
-                href="https://o-sqz.tistory.com"
+                href="https://o-sqz.tistory.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="chip chip-outline"
+                class="chip"
               >
+                <span class="chip-icon chip-icon-blog"></span>
                 Blog
               </a>
             </div>
@@ -83,10 +88,8 @@
                 <div class="stack-item">
                   <span class="stack-label">Frontend</span>
                   <div class="stack-icons">
-                    <!-- 임시 스택: 나중에 정확한 리스트로 교체 가능 -->
                     <span class="stack-pill">HTML</span>
                     <span class="stack-pill">CSS</span>
-                    <span class="stack-pill">JavaScript</span>
                   </div>
                 </div>
 
@@ -94,6 +97,7 @@
                   <span class="stack-label">Backend</span>
                   <div class="stack-icons">
                     <span class="stack-pill">Python</span>
+                    <span class="stack-pill">JavaScript</span>
                     <span class="stack-pill">Flask</span>
                   </div>
                 </div>
@@ -102,18 +106,30 @@
                   <span class="stack-label">Tools</span>
                   <div class="stack-icons">
                     <span class="stack-pill">Linux</span>
-                    <span class="stack-pill">Git</span>
-                    <span class="stack-pill">VS Code</span>
+                    <span class="stack-pill">Kali Linux</span>
+                    <span class="stack-pill">Ubuntu</span>
+                    <span class="stack-pill">Burp Suite</span>
+                    <span class="stack-pill">Nmap</span>
+                    <span class="stack-pill">Wireshark</span>
+                    <span class="stack-pill">OWASP ZAP</span>
+                    <span class="stack-pill">Docker</span>
+                    <span class="stack-pill">MITRE ATT&amp;CK</span>
+                    <span class="stack-pill">Snort</span>
+                    <span class="stack-pill">Hydra</span>
+                    <span class="stack-pill">Aircrack-ng</span>
                   </div>
                 </div>
               </div>
+
+              <!-- 로고 뱃지 버전으로 바꾸고 싶으면 나중에 span 대신 img(shields.io)로 교체하면 됨 -->
             </div>
           </div>
 
           <!-- 오른쪽: 프로필/경험/학력 -->
           <aside class="intro-profile">
-            <div class="avatar-placeholder">
-              <span>OSQZ</span>
+            <!-- OSQZ 로고 사용: assets/OSQZ_logo.png 로 저장해서 사용 -->
+            <div class="avatar-logo">
+              <img src="assets/OSQZ_logo.png" alt="OSQZ logo" />
             </div>
 
             <div class="profile-block">
@@ -127,7 +143,9 @@
                 </li>
                 <li>
                   <span class="profile-title">Knockon Web 보안 교육 수료</span>
-                  <span class="profile-desc">
+                  <span
+                    class="profile-desc profile-desc--knockon"
+                  >
                     Web Hacking Wargame 기반 웹 취약점 분석 및 실습
                   </span>
                 </li>
