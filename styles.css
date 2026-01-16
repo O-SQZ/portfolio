@@ -719,6 +719,7 @@ img {
 @media (max-width: 767px) {
   .project-carousel {
     gap: 8px;
+    justify-content: center; /* 좌우 버튼 + 카드 중앙 배치 */
   }
 
   /* 카드가 화면 안에 여유 있게 들어오도록 */
@@ -727,17 +728,24 @@ img {
   }
 
   .project-track {
-    padding: 0 16px; /* 좌우 여백 확보해서 카드 중앙정렬 느낌 */
+    padding: 0 8px; /* 좌우 여백 조금 줄이기 */
   }
 
   .project-card {
-    flex: 0 0 80vw;      /* 화면의 80% 너비 */
-    max-width: 80vw;
-    min-height: 360px;   /* 세로로 조금 더 길게 */
+    flex: 0 0 72vw;      /* 화면의 약 70~75% 너비 → 1장만 보이게 + 버튼 공간 확보 */
+    max-width: 72vw;
+    min-height: 360px;   /* 세로는 그대로 */
   }
 
   .project-thumb {
-    aspect-ratio: 16 / 10; /* 썸네일을 살짝 낮게 → 본문 영역 더 확보 */
+    aspect-ratio: 16 / 10; /* 썸네일은 현재 비율 유지 */
+  }
+
+  /* 모바일에서 버튼 조금 작게 */
+  .project-carousel-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 1.1rem;
   }
 }
 
