@@ -1085,6 +1085,154 @@ img {
 }
 
 /* =========================
+   Footer
+   ========================= */
+
+.site-footer {
+  border-top: 1px solid rgba(148, 163, 184, 0.15);
+  padding: 20px 24px 28px;
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), transparent 55%),
+              radial-gradient(circle at top right, rgba(251, 146, 60, 0.08), transparent 60%),
+              rgba(8, 15, 35, 0.98);
+}
+
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr auto 1.4fr;
+  align-items: center;
+  gap: 24px;
+}
+
+/* 좌측 영역 */
+
+.footer-left {
+  font-size: 0.82rem;
+  color: rgba(226, 232, 240, 0.85);
+}
+
+.footer-title {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.footer-title-brand {
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-size: 0.9rem;
+  color: #ff8800;
+}
+
+.footer-title-sub {
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #6366f1, #22c1c3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.footer-copy {
+  margin: 0;
+  line-height: 1.6;
+  max-width: 480px;
+  color: rgba(148, 163, 184, 0.95);
+}
+
+.footer-copy-owner {
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+/* 중앙 로고 */
+
+.footer-center {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  box-shadow:
+    0 10px 25px rgba(15, 23, 42, 0.75),
+    0 0 0 1px rgba(148, 163, 184, 0.4);
+  background: radial-gradient(circle at 30% 0%, rgba(248, 250, 252, 0.25), transparent 55%),
+              #020617;
+  padding: 6px;
+  object-fit: contain;
+}
+
+/* 우측 링크 */
+
+.footer-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* 기존 chip 스타일 살짝 축소 */
+
+.chip-footer {
+  font-size: 0.8rem;
+  padding: 6px 10px;
+  gap: 6px;
+}
+
+.chip-icon-footer {
+  width: 18px;
+  height: 18px;
+}
+
+/* 반응형 */
+
+@media (max-width: 900px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .footer-left {
+    order: 1;
+  }
+
+  .footer-center {
+    order: 0;
+  }
+
+  .footer-right {
+    order: 2;
+    justify-content: center;
+  }
+
+  .footer-copy {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-footer {
+    padding: 18px 16px 22px;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+}
+
+/* =========================
    Breakpoints
    ========================= */
 @media (min-width: 768px) {
