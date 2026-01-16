@@ -365,7 +365,7 @@ img {
 
 /* Tech Stack */
 .stack {
-  margin-top: -10;
+  margin-top: -10px;
   /* 기본은 0, 데스크톱에서만 더 당김 */
 }
 
