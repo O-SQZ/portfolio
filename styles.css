@@ -812,20 +812,23 @@ img {
 
 /* 썸네일 영역 */
 .blog-thumb {
-  flex: 0 0 160px;
+  flex: 0 0 140px;  /* 기존 160px → 조금 줄임 */
+  max-width: 140px;
   background: radial-gradient(circle at top, #0f172a, #020617);
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 8px;          /* 안쪽 여백 줘서 이미지 전체 보이게 */
 }
 
 /* 실제 썸네일 이미지 */
 .blog-thumb-img,
 .blog-thumb img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;          /* 비율 유지 */
+  object-fit: contain;   /* 잘리지 않고 전체가 보이도록 */
+  border-radius: 12px;
 }
 
 /* 썸네일 없을 때 플레이스홀더 */
@@ -920,7 +923,9 @@ img {
 
   .blog-thumb {
     width: 100%;
-    height: 150px;
+    max-width: none;
+    height: auto;        /* 고정 높이 제거 */
+    padding: 8px 8px 0;  /* 위쪽에만 살짝 여백 */
   }
 
   .blog-body {
