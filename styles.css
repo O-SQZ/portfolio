@@ -721,9 +721,23 @@ img {
     gap: 8px;
   }
 
+  /* 카드가 화면 안에 여유 있게 들어오도록 */
+  .project-window {
+    overflow: visible; /* 오른쪽 잘리지 않게 */
+  }
+
+  .project-track {
+    padding: 0 16px; /* 좌우 여백 확보해서 카드 중앙정렬 느낌 */
+  }
+
   .project-card {
-    flex: 0 0 85vw;
-    max-width: 85vw;
+    flex: 0 0 80vw;      /* 화면의 80% 너비 */
+    max-width: 80vw;
+    min-height: 360px;   /* 세로로 조금 더 길게 */
+  }
+
+  .project-thumb {
+    aspect-ratio: 16 / 10; /* 썸네일을 살짝 낮게 → 본문 영역 더 확보 */
   }
 }
 
