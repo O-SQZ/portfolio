@@ -2,192 +2,237 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <title>OSQZ Portfolio</title>
+    <title>OSQZ • Security Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <!-- 상단 네비게이션 -->
-    <nav class="nav">
-      <a href="#intro">Intro</a>
-      <a href="#projects">Projects</a>
-      <a href="#blog">Blog</a>
-      <a href="#wargame">Wargame</a>
-    </nav>
+    <header class="top-nav">
+      <div class="nav-left">
+        <span class="nav-logo-dot"></span>
+        <span class="nav-title">OSQZ • SECURITY PORTFOLIO</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#intro" class="nav-link nav-link-active">Intro</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#blog" class="nav-link">Blog</a>
+        <a href="#wargame" class="nav-link">Wargame</a>
+      </nav>
+    </header>
 
-    <!-- 스냅 스크롤 컨테이너 -->
     <main id="page">
-      <!-- 1. Intro -->
+      <!-- INTRO SECTION -->
       <section id="intro" class="section section-intro">
-        <div class="section-inner intro-layout">
-          <!-- 왼쪽: 메인 소개 -->
-          <div class="intro-main">
-            <!-- 상태 뱃지 -->
-            <div class="status-row">
-              <!-- data-status: seeking / changing / working 등으로 나중에 변경 -->
-              <span class="status-badge" data-status="seeking">
-                구직중 · Open to Work
-              </span>
-            </div>
+        <div class="section-inner">
+          <!-- 상태 뱃지 -->
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            <span class="status-text">구직중 · Open to Work</span>
+          </div>
 
-            <h1 class="intro-title">
-              김주형
-              <span class="intro-name-en">KIM JUHYEONG</span>
-            </h1>
+          <!-- 좌우 레이아웃 (모바일에서는 좌우 슬라이드) -->
+          <div class="intro-layout">
+            <!-- 왼쪽: 메인 소개 -->
+            <div class="intro-main">
+              <div class="intro-name-row">
+                <h1 class="intro-name-kr">김주형</h1>
+                <span class="intro-name-en">KIM JUHYEONG</span>
+              </div>
 
-            <p class="intro-subtitle">
-              웹 보안 · 보안 자동화 · 사회공학기법
-            </p>
+              <div class="intro-tags">
+                <span>웹 보안</span>
+                <span>보안 자동화</span>
+                <span>사회공학기법</span>
+              </div>
 
-            <!-- 회사 입장에서 보는 한 줄 -->
-            <p class="intro-text">
-              웹 해킹과 사회공학 기반 공격 시나리오를 이해하고, AI를 포함한
-              자동화 도구로 반복적인 보안 점검을 줄이며, 사람을 가장 큰
-              취약점으로 가정한 보안 체계를 고민하고 있습니다.
-            </p>
+              <p class="intro-lead">
+                웹 해킹과 사회공학 기반 공격 시나리오를 이해하고, AI를 포함한 자동화 도구로 반복적인
+                보안 점검을 줄이며, 사람을 가장 큰 취약점으로 가정한 보안 체계를 고민하고 있습니다.
+              </p>
 
-            <hr class="intro-divider" />
+              <hr class="intro-divider" />
 
-            <!-- 현재 상태 -->
-            <p class="intro-current">
-              현재는 정보보안기사 실기 / 정보처리기사 필기 준비와 함께, 웹
-              보안을 위한 AI 활용과 사회공학기법 관련 프로젝트를 진행 중입니다.
-            </p>
+              <p class="intro-current">
+                현재는 정보보안기사 실기 / 정보처리기사 필기 준비와 함께, 웹 보안을 위한 AI 활용과
+                사회공학기법 관련 프로젝트를 진행 중입니다.
+              </p>
 
-            <!-- 링크들 -->
-            <div class="intro-links">
-              <a href="mailto:max5131004@gmail.com" class="chip">
-                <span class="chip-icon chip-icon-mail"></span>
-                이메일
-              </a>
-              <a
-                href="https://github.com/O-SQZ"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="chip"
-              >
-                <span class="chip-icon chip-icon-github"></span>
-                GitHub
-              </a>
-              <a
-                href="https://o-sqz.tistory.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="chip"
-              >
-                <span class="chip-icon chip-icon-blog"></span>
-                Blog
-              </a>
-            </div>
+              <!-- 링크 뱃지 -->
+              <div class="intro-links">
+                <a href="mailto:max5131004@gmail.com" class="chip" target="_blank">
+                  <span class="chip-icon-circle">
+                    <img src="assets/icon-gmail.png" alt="Gmail" />
+                  </span>
+                  <span>이메일</span>
+                </a>
+                <a href="https://github.com/O-SQZ" class="chip" target="_blank" rel="noreferrer">
+                  <span class="chip-icon-circle">
+                    <img src="assets/icon-github.png" alt="GitHub" />
+                  </span>
+                  <span>GitHub</span>
+                </a>
+                <a href="https://o-sqz.tistory.com/" class="chip" target="_blank" rel="noreferrer">
+                  <span class="chip-icon-circle">
+                    <img src="assets/icon-tistory.png" alt="Tistory" />
+                  </span>
+                  <span>Blog</span>
+                </a>
+              </div>
 
-            <!-- Tech Stack -->
-            <div class="skills">
-              <h2 class="section-title-small">Tech Stack</h2>
+              <!-- TECH STACK -->
+              <section class="stack">
+                <h2 class="stack-title">TECH STACK</h2>
 
-              <div class="stack-group">
-                <div class="stack-item">
-                  <span class="stack-label">Frontend</span>
+                <div class="stack-group">
+                  <h3 class="stack-subtitle">Frontend</h3>
                   <div class="stack-icons">
-                    <span class="stack-pill">HTML</span>
-                    <span class="stack-pill">CSS</span>
+                    <img
+                      class="stack-badge"
+                      src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"
+                      alt="HTML5"
+                    />
+                    <img
+                      class="stack-badge"
+                      src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white"
+                      alt="CSS3"
+                    />
                   </div>
                 </div>
 
-                <div class="stack-item">
-                  <span class="stack-label">Backend</span>
+                <div class="stack-group">
+                  <h3 class="stack-subtitle">Backend</h3>
                   <div class="stack-icons">
-                    <span class="stack-pill">Python</span>
-                    <span class="stack-pill">JavaScript</span>
-                    <span class="stack-pill">Flask</span>
+                    <img
+                      class="stack-badge"
+                      src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white"
+                      alt="Python"
+                    />
+                    <img
+                      class="stack-badge"
+                      src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"
+                      alt="JavaScript"
+                    />
+                    <img
+                      class="stack-badge"
+                      src="https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white"
+                      alt="Flask"
+                    />
                   </div>
                 </div>
 
-                <div class="stack-item">
-                  <span class="stack-label">Tools</span>
+                <div class="stack-group">
+                  <h3 class="stack-subtitle">Tools</h3>
                   <div class="stack-icons">
-                    <span class="stack-pill">Linux</span>
-                    <span class="stack-pill">Kali Linux</span>
-                    <span class="stack-pill">Ubuntu</span>
-                    <span class="stack-pill">Burp Suite</span>
-                    <span class="stack-pill">Nmap</span>
-                    <span class="stack-pill">Wireshark</span>
-                    <span class="stack-pill">OWASP ZAP</span>
-                    <span class="stack-pill">Docker</span>
-                    <span class="stack-pill">MITRE ATT&amp;CK</span>
-                    <span class="stack-pill">Snort</span>
-                    <span class="stack-pill">Hydra</span>
-                    <span class="stack-pill">Aircrack-ng</span>
+                    <img
+                      class="stack-badge"
+                      src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black"
+                      alt="Linux"
+                    />
+                    <img
+                      class="stack-badge"
+                      src="https://img.shields.io/badge/Burp%20Suite-Pro%20Edition-orange?style=flat-square"
+                      alt="Burp Suite"
+                    />
+                    <img
+                      class="stack-badge"
+                      src="https://img.shields.io/badge/Nmap-0050A0?style=flat-square"
+                      alt="Nmap"
+                    />
+                    <img
+                      class="stack-badge"
+                      src="https://img.shields.io/badge/Wireshark-1679A7?style=flat-square&logo=wireshark&logoColor=white"
+                      alt="Wireshark"
+                    />
+                    <img
+                      class="stack-badge"
+                      src="https://img.shields.io/badge/OWASP%20ZAP-000000?style=flat-square"
+                      alt="OWASP ZAP"
+                    />
+                    <img
+                      class="stack-badge"
+                      src="https://img.shields.io/badge/MITRE%20ATT%26CK-CC0000?style=flat-square"
+                      alt="MITRE ATT&CK"
+                    />
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <!-- 오른쪽: 로고 + 경험/학력 -->
+            <aside class="intro-profile">
+              <div class="profile-avatar">
+                <img src="assets/OSQZ_logo.png" alt="OSQZ logo" />
+              </div>
+
+              <div class="profile-block">
+                <h2 class="profile-title">EXPERIENCE</h2>
+                <div class="profile-item">
+                  <div class="profile-item-title">goorm 교육 수료</div>
+                  <div class="profile-item-desc">
+                    보안·개발 관련 실습 중심 교육 과정
+                  </div>
+                </div>
+                <div class="profile-item">
+                  <div class="profile-item-title">Knockon Web 보안 교육 수료</div>
+                  <div class="profile-item-desc profile-item-desc-nowrap">
+                    Web Hacking Wargame 기반 웹 취약점 분석 및 실습
                   </div>
                 </div>
               </div>
 
-              <!-- 로고 뱃지 버전으로 바꾸고 싶으면 나중에 span 대신 img(shields.io)로 교체하면 됨 -->
-            </div>
+              <hr class="profile-divider" />
+
+              <div class="profile-block">
+                <h2 class="profile-title">EDUCATION</h2>
+                <div class="profile-item">
+                  <div class="profile-item-title">
+                    공학사 (학점은행제) · 컴퓨터공학
+                  </div>
+                  <div class="profile-item-desc">2019 - 2025</div>
+                </div>
+              </div>
+            </aside>
           </div>
 
-          <!-- 오른쪽: 프로필/경험/학력 -->
-          <aside class="intro-profile">
-            <!-- OSQZ 로고 사용: assets/OSQZ_logo.png 로 저장해서 사용 -->
-            <div class="avatar-logo">
-              <img src="assets/OSQZ_logo.png" alt="OSQZ logo" />
-            </div>
-
-            <div class="profile-block">
-              <h2 class="section-title-small">Experience</h2>
-              <ul class="profile-list">
-                <li>
-                  <span class="profile-title">goorm 교육 수료</span>
-                  <span class="profile-desc">
-                    보안·개발 관련 실습 중심 교육 과정
-                  </span>
-                </li>
-                <li>
-                  <span class="profile-title">Knockon Web 보안 교육 수료</span>
-                  <span
-                    class="profile-desc profile-desc--knockon"
-                  >
-                    Web Hacking Wargame 기반 웹 취약점 분석 및 실습
-                  </span>
-                </li>
-              </ul>
-            </div>
-
-            <div class="profile-block">
-              <h2 class="section-title-small">Education</h2>
-              <ul class="profile-list">
-                <li>
-                  <span class="profile-title">
-                    공학사 (학점은행제) · 컴퓨터공학
-                  </span>
-                  <span class="profile-desc">2019 - 2025</span>
-                </li>
-              </ul>
-            </div>
-          </aside>
+          <!-- 모바일 인디케이터 (좌/우 두 페이지 힌트) -->
+          <div class="intro-mobile-indicator">
+            <span class="indicator-dot indicator-dot-active"></span>
+            <span class="indicator-dot"></span>
+          </div>
         </div>
       </section>
 
-      <!-- 2. Projects (임시) -->
-      <section id="projects" class="section section-projects">
+      <!-- PROJECTS SECTION (아직 내용은 placeholder) -->
+      <section id="projects" class="section">
         <div class="section-inner">
-          <h1>Projects (임시)</h1>
-          <p>진행한 보안/개발 프로젝트 목록이 들어갈 자리입니다.</p>
+          <h2 class="section-heading">Projects</h2>
+          <p class="section-desc">
+            여기는 OWASP Top 10 2025 번역, 보안/자동화 개발 프로젝트 등을
+            정리하는 영역으로, 나중에 단계 3에서 본문을 채울 예정이다.
+          </p>
         </div>
       </section>
 
-      <!-- 3. Blog (임시) -->
-      <section id="blog" class="section section-blog">
+      <!-- BLOG SECTION (placeholder) -->
+      <section id="blog" class="section">
         <div class="section-inner">
-          <h1>Blog (임시)</h1>
-          <p>티스토리 최신 포스팅이 연동될 자리입니다.</p>
+          <h2 class="section-heading">Latest Blog Posts</h2>
+          <p class="section-desc">
+            o-sqz.tistory.com의 최신 포스팅을 불러오는 영역. 이후 연동 단계에서
+            구현한다.
+          </p>
         </div>
       </section>
 
-      <!-- 4. Wargame (임시) -->
-      <section id="wargame" class="section section-wargame">
+      <!-- WARGAME SECTION (placeholder) -->
+      <section id="wargame" class="section">
         <div class="section-inner">
-          <h1>Dreamhack Wargame (임시)</h1>
-          <p>Dreamhack Web Wargame 현황이 표시될 자리입니다.</p>
+          <h2 class="section-heading">Dreamhack Web Wargame</h2>
+          <p class="section-desc">
+            Dreamhack Web Wargame 진행 현황과 최근 풀이 5개를 보여주는 영역.
+            추후 API/스크래핑 방식 결정 후 구현 예정.
+          </p>
         </div>
       </section>
     </main>
