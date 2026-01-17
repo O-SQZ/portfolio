@@ -801,7 +801,7 @@ img {
   gap: 20px;
 }
 
-/* 카드 공통 – 높이 넉넉하게 */
+/* 카드 공통 */
 .blog-card {
   border-radius: 20px;
   background: radial-gradient(circle at top left,
@@ -814,15 +814,14 @@ img {
   overflow: hidden;
   display: flex;
   flex-direction: row;
-  min-height: 220px;
-  /* 기존보다 거의 두 배 느낌 */
+  min-height: 140px;
 }
 
 /* 썸네일 영역 */
 .blog-thumb {
-  flex: 0 0 140px;
+  flex: 0 0 110px;
   /* 기존 160px → 조금 줄임 */
-  max-width: 140px;
+  max-width: 110px;
   background: radial-gradient(circle at top, #0f172a, #020617);
   position: relative;
   display: flex;
@@ -1067,6 +1066,20 @@ img {
 .wargame-more-button {
   /* 필요하면 Wargame 전용 여백/크기만 살짝 조정 */
   padding-inline: 30px;
+}
+
+/* Wargame 헤더 안의 크레딧 링크 스타일 */
+.wargame-header .section-desc a {
+  color: #9ca3af;  /* 전체 톤과 비슷한 회색 계열 */
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(148, 163, 184, 0.6); /* 실선 대신 점선 밑줄 */
+  padding-bottom: 1px;
+  font-size: 0.85rem;
+}
+
+.wargame-header .section-desc a:hover {
+  color: #e5e7eb;                                /* hover 시 약간 더 밝게 */
+  border-bottom-color: rgba(248, 113, 22, 0.8); /* 주황 계열로 포인트 */
 }
 
 /* 모바일에서 여백만 약간 조정 */
