@@ -870,7 +870,7 @@ img {
   /* 데스크톱: 한 화면에 카드 2개 */
   flex: 0 0 calc(50% - 10px);
   max-width: calc(50% - 10px);
-
+  position: relative;
   border-radius: 20px;
   background: radial-gradient(circle at top left,
       rgba(15, 23, 42, 0.98),
@@ -1074,6 +1074,7 @@ img {
   order: 5;
   margin-top: 8px;
   margin-bottom: 4px;
+  margin-left: auto;              /* footer 내에서 우측 끝으로 정렬 */
   font-size: 0.8rem;
   color: #bfdbfe;
   text-decoration: none;
@@ -1120,7 +1121,6 @@ img {
 .learning-footer {
   order: 5;                        /* 제목/기간/내용/태그 다음에 오도록 */
   display: flex;
-  justify-content: space-between;  /* 왼쪽: 링크 / 오른쪽: 뱃지 */
   align-items: center;
   margin-top: auto;                /* 위쪽 공간을 다 먹고 카드 맨 아래로 */
   padding-top: 8px;                /* 태그와 약간만 간격 */
@@ -1128,6 +1128,11 @@ img {
 }
 
 .learning-status {
+  position: absolute;               /* 카드 전체 기준으로 배치 */
+  top: 10px;
+  left: 16px;
+  z-index: 2;
+
   font-size: 0.75rem;
   padding: 4px 10px;
   border-radius: 999px;
