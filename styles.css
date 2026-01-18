@@ -1130,7 +1130,7 @@ img {
 .learning-status {
   position: absolute;               /* 카드 전체 기준으로 배치 */
   top: 10px;
-  left: 16px;
+  left: 10px;
   z-index: 2;
 
   font-size: 0.75rem;
