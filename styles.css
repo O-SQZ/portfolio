@@ -788,29 +788,41 @@ img {
 }
 
 .learning-filter-label {
+  position: relative;
   font-size: 0.8rem;
   color: #e5e7eb;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: 999px;
   background: radial-gradient(circle at top left,
       rgba(15, 23, 42, 0.96),
       rgba(15, 23, 42, 0.9));
   border: 1px solid rgba(55, 65, 81, 0.9);
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.8);
 }
 
 /* 셀렉트 자체는 투명 + 기본 테두리 제거 */
 .learning-filter-label select {
   background: transparent;
   border: none;
-  padding: 0 2px;
+  padding: 2px 18px 2px 4px; /* 오른쪽 공간은 커스텀 화살표용 */
   font-size: 0.78rem;
   color: #e5e7eb;
   outline: none;
-  appearance: none;               /* 크롬/사파리 */
-  -moz-appearance: none;          /* 파이어폭스 */
+  appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+
+.learning-filter-label::after {
+  content: "▾";
+  position: absolute;
+  right: 8px;
+  font-size: 0.7rem;
+  color: rgba(156, 163, 175, 0.9);
+  pointer-events: none;
 }
 
 /* 슬라이더 레이아웃 */
@@ -818,7 +830,7 @@ img {
 .learning-window {
   position: relative;
   overflow: hidden;
-  padding: 8px 40px;
+  padding: 8px 24px;
   /* 좌우 버튼 공간 */
 }
 
@@ -1077,11 +1089,11 @@ img {
 }
 
 .learning-carousel-btn-prev {
-  left: 4px;
+  left: 10px;
 }
 
 .learning-carousel-btn-next {
-  right: 4px;
+  right: 10px;
 }
 
 /* 반응형 */
