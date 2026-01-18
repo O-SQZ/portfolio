@@ -862,7 +862,7 @@ img {
 
 /* 호버 시 살짝 확대 */
 .learning-card:hover .learning-thumb img {
-  transform: scale(1.05);
+  transform: scale(3);
 }
 
 /* 썸네일 placeholder */
@@ -883,7 +883,7 @@ img {
 /* 본문 영역 */
 .learning-body {
   flex: 1;
-  padding: 12px 16px 12px;
+  padding: 18px 18px 18px;
   display: flex;
   flex-direction: column;
 }
@@ -891,7 +891,7 @@ img {
 /* 제목: 1번째 */
 .learning-title {
   order: 1;
-  margin: 0 0 6px;
+  margin: 0 0 10px;
   font-size: 0.98rem;
   font-weight: 600;
   color: #f9fafb;
@@ -923,7 +923,7 @@ img {
 /* 내용: 3번째 */
 .learning-desc {
   order: 3;
-  margin: 4px 0 8px;
+  margin: 2px 0 2px;
   font-size: 0.85rem;
   color: #9ca3af;
   flex: 1;
@@ -946,7 +946,7 @@ img {
   display: block;
   width: 100%;
   height: 1px;
-  margin: 6px 0 4px;
+  margin: 2px 0 2px;
   background: linear-gradient(to right,
       rgba(148, 163, 184, 0.1),
       rgba(148, 163, 184, 0.5),
@@ -1020,7 +1020,8 @@ img {
 /* 링크: 5번째 */
 .learning-link {
   order: 5;
-  margin-top: 6px;
+  margin-top: 8px;
+  margin-bottom: 4px;
   font-size: 0.8rem;
   color: #bfdbfe;
   text-decoration: none;
