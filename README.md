@@ -25,18 +25,7 @@ GitHub Pages를 통해 아래 주소로 배포됩니다.
 
 ---
 
-## 3. 페이지 미리보기
-
-메인 포트폴리오 화면 스크린샷입니다.  
-<img width="1470" height="829" alt="스크린샷 2026-01-17 오전 1 23 04" src="https://github.com/user-attachments/assets/858be789-73a0-44bf-bb8d-98c5c8fe8225" />
-<img width="1470" height="829" alt="스크린샷 2026-01-17 오전 1 23 08" src="https://github.com/user-attachments/assets/7dcb442d-ba23-472e-b909-0c229711fac1" />
-<img width="1470" height="829" alt="스크린샷 2026-01-17 오전 1 23 10" src="https://github.com/user-attachments/assets/eafbc71c-4cc0-4211-9905-10076e106cd7" />
-<img width="1470" height="829" alt="스크린샷 2026-01-17 오전 1 23 15" src="https://github.com/user-attachments/assets/bd91a786-086c-47de-b72f-36be4793f8eb" />
-<img width="1470" height="116" alt="스크린샷 2026-01-17 오전 1 23 30" src="https://github.com/user-attachments/assets/8a9e44c2-467a-42fb-b18d-34b1b936bfa2" />
-
----
-
-## 4. 저작권 및 라이선스
+## 3. 저작권 및 라이선스
 
 - 이 저장소의 **소스코드, 마크업, 스타일시트, 포트폴리오용 텍스트**는 별도 명시가 없는 한 모두 **OSQZ**에게 저작권이 있습니다.
 - 해당 코드와 설정 파일은 **MIT License** 하에 자유롭게 사용, 수정, 재배포할 수 있습니다.
