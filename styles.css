@@ -850,7 +850,7 @@ img {
 .learning-window {
   position: relative;
   overflow: hidden;
-  padding: 8px 56px;
+  padding: 8px 32px;
   /* 좌우 버튼이 카드 가까이에 오도록 여유 공간 확보 */
 }
 
@@ -1109,18 +1109,18 @@ img {
 }
 
 .learning-carousel-btn-prev {
-  left: 24px;
+  left: 10px;
 }
 
 .learning-carousel-btn-next {
-  right: 24px;
+  right: 10px;
 }
 
 /* 반응형 */
 
 @media (max-width: 1024px) {
   .learning-window {
-    padding: 8px 44px;
+    padding: 8px 24px;
   }
 
   .learning-card {
@@ -1129,11 +1129,11 @@ img {
   }
 
   .learning-carousel-btn-prev {
-    left: 18px;
+    left: 8px;
   }
 
   .learning-carousel-btn-next {
-    right: 18px;
+    right: 8px;
   }
 }
 
