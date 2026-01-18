@@ -863,6 +863,10 @@ img {
 
 /* 카드 공통 (Learning) */
 .learning-card {
+  /* 👉 데스크톱 기본: 한 화면에 카드 2개만 보이도록 폭 고정 */
+  flex: 0 0 calc(50% - 10px);   /* gap: 20px 기준, 20 / 2 */
+  max-width: calc(50% - 10px);
+
   border-radius: 20px;
   background: radial-gradient(circle at top left,
       rgba(15, 23, 42, 0.98),
