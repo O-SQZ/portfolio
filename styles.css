@@ -1116,6 +1116,65 @@ img {
   transform: translateY(-1px);
 }
 
+/* Learning footer & status badge */
+.learning-footer {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.learning-status {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background: radial-gradient(circle at top left,
+      rgba(15, 23, 42, 0.95),
+      rgba(15, 23, 42, 0.85));
+  color: #e5e7eb;
+  white-space: nowrap;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.6);
+}
+
+/* 수료 / 완료 (초록) */
+.learning-status-complete {
+  border-color: rgba(34, 197, 94, 0.6);
+  background: linear-gradient(135deg,
+      rgba(22, 163, 74, 0.95),
+      rgba(34, 197, 94, 0.8));
+  color: #ecfdf5;
+  box-shadow: 0 0 14px rgba(34, 197, 94, 0.35);
+}
+
+/* 학습 중 (노랑) – 필요할 때 사용할 예정 */
+.learning-status-progress {
+  border-color: rgba(250, 204, 21, 0.7);
+  background: linear-gradient(135deg,
+      rgba(234, 179, 8, 0.95),
+      rgba(250, 204, 21, 0.8));
+  color: #fefce8;
+  box-shadow: 0 0 14px rgba(250, 204, 21, 0.35);
+}
+
+/* 준비 중 (회색) */
+.learning-status-planned {
+  border-color: rgba(148, 163, 184, 0.7);
+  background: linear-gradient(135deg,
+      rgba(55, 65, 81, 0.96),
+      rgba(30, 41, 59, 0.9));
+  color: #e5e7eb;
+  box-shadow: 0 0 14px rgba(15, 23, 42, 0.65);
+}
+
+@media (max-width: 768px) {
+  .learning-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 /* 반응형 */
 
 @media (max-width: 1024px) {
