@@ -176,120 +176,92 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* =========================
-   5) Blog – Tistory RSS 최신 4개 불러오기
-   ========================= */
-  const blogGrid = document.getElementById("blog-grid");
+  // Learning 섹션 슬라이더 + 필터/정렬
+  (function () {
+    const track = document.querySelector(".learning-track");
+    if (!track) return;
 
-  if (blogGrid) {
-    const RSS_URL = "https://o-sqz.tistory.com/rss";
+    const allCards = Array.from(track.children);
+    let filteredCards = allCards.slice();
 
-    function stripHtml(html) {
-      const tmp = document.createElement("div");
-      tmp.innerHTML = html;
-      return tmp.textContent || tmp.innerText || "";
+    const tagSelect = document.getElementById("learningTagFilter");
+    const sortSelect = document.getElementById("learningSort");
+    const prevBtn = document.querySelector(".learning-carousel-btn-prev");
+    const nextBtn = document.querySelector(".learning-carousel-btn-next");
+
+    let currentIndex = 0;
+
+    function getCardsPerView() {
+      return window.innerWidth < 768 ? 1 : 2;
     }
 
-    function extractFirstImageSrc(html) {
-      const match = html.match(/<img[^>]+src=["']([^"']+)["']/i);
-      return match ? match[1] : null;
+    function applyFilterAndSort() {
+      const tag = tagSelect ? tagSelect.value : "all";
+      const sort = sortSelect ? sortSelect.value : "recent";
+
+      filteredCards = allCards.filter((card) => {
+        if (tag === "all") return true;
+        const tags = (card.dataset.tags || "")
+          .split(",")
+          .map((t) => t.trim());
+        return tags.includes(tag);
+      });
+
+      filteredCards.sort((a, b) => {
+        const aDate = new Date(a.dataset.start || "1970-01-01");
+        const bDate = new Date(b.dataset.start || "1970-01-01");
+        return sort === "recent" ? bDate - aDate : aDate - bDate;
+      });
+
+      // 트랙 재구성
+      track.innerHTML = "";
+      filteredCards.forEach((card) => track.appendChild(card));
+      currentIndex = 0;
+      updateTransform();
     }
 
-    function createBlogCard(post) {
-      const card = document.createElement("article");
-      card.className = "blog-card";
+    function updateTransform() {
+      const cardsPerView = getCardsPerView();
+      const firstCard = track.querySelector(".learning-card");
+      if (!firstCard) return;
 
-      const hasThumb = !!post.thumbnail;
+      const cardWidth = firstCard.getBoundingClientRect().width;
+      const gap = 20; // CSS의 gap 값과 맞춤
+      const slideWidth = cardWidth + gap;
 
-      card.innerHTML = `
-        <div class="blog-thumb ${hasThumb ? "" : "blog-thumb-placeholder"}">
-          ${hasThumb
-          ? `<img src="${post.thumbnail}" alt="${post.title} 썸네일" />`
-          : ""
-        }
-        </div>
-        <div class="blog-body">
-          <div class="blog-meta">
-            <span class="blog-date">${post.date}</span>
-          </div>
-          <h3 class="blog-title">
-            <a href="${post.link}" target="_blank" rel="noreferrer">
-              ${post.title}
-            </a>
-          </h3>
-          <p class="blog-excerpt">
-            ${post.excerpt}
-          </p>
-        </div>
-      `;
+      const maxIndex = Math.max(0, filteredCards.length - cardsPerView);
+      if (currentIndex < 0) currentIndex = 0;
+      if (currentIndex > maxIndex) currentIndex = maxIndex;
 
-      return card;
+      track.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
     }
 
-    async function loadBlogPosts() {
-      try {
-        const res = await fetch(RSS_URL);
-        if (!res.ok) throw new Error("RSS fetch failed");
-
-        const text = await res.text();
-        const parser = new DOMParser();
-        const xml = parser.parseFromString(text, "application/xml");
-
-        const items = Array.from(xml.querySelectorAll("item")).slice(0, 4);
-
-        if (!items.length) {
-          throw new Error("No RSS items");
-        }
-
-        // 기존 로딩 카드 제거
-        blogGrid.innerHTML = "";
-
-        items.forEach((item) => {
-          const title = item.querySelector("title")?.textContent?.trim() || "";
-          const link = item.querySelector("link")?.textContent?.trim() || "#";
-          const pubDate =
-            item.querySelector("pubDate")?.textContent?.trim() || "";
-          const descRaw =
-            item.querySelector("description")?.textContent || "";
-
-          const thumb = extractFirstImageSrc(descRaw);
-          const plain = stripHtml(descRaw).replace(/\s+/g, " ").trim();
-          const excerpt =
-            plain.length > 80 ? `${plain.slice(0, 80)}...` : plain;
-
-          const post = {
-            title,
-            link,
-            date: pubDate ? new Date(pubDate).toISOString().slice(0, 10) : "",
-            excerpt,
-            thumbnail: thumb,
-          };
-
-          blogGrid.appendChild(createBlogCard(post));
-        });
-      } catch (err) {
-        console.error("Blog RSS load error:", err);
-        blogGrid.innerHTML = `
-          <article class="blog-card blog-card-loading">
-            <div class="blog-thumb blog-thumb-placeholder"></div>
-            <div class="blog-body">
-              <div class="blog-meta">
-                <span class="blog-date">Error</span>
-              </div>
-              <h3 class="blog-title">
-                <a href="https://o-sqz.tistory.com/" target="_blank" rel="noreferrer">
-                  블로그를 불러오지 못했습니다.
-                </a>
-              </h3>
-              <p class="blog-excerpt">
-                직접 블로그에서 최신 포스팅을 확인해 주세요.
-              </p>
-            </div>
-          </article>
-        `;
-      }
+    function moveNext() {
+      currentIndex += getCardsPerView();
+      updateTransform();
     }
 
-    loadBlogPosts();
-  }
+    function movePrev() {
+      currentIndex -= getCardsPerView();
+      updateTransform();
+    }
+
+    if (tagSelect) {
+      tagSelect.addEventListener("change", applyFilterAndSort);
+    }
+    if (sortSelect) {
+      sortSelect.addEventListener("change", applyFilterAndSort);
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener("click", moveNext);
+    }
+    if (prevBtn) {
+      prevBtn.addEventListener("click", movePrev);
+    }
+
+    window.addEventListener("resize", updateTransform);
+
+    // 초기 렌더
+    applyFilterAndSort();
+  })();
 });
