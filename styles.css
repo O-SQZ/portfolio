@@ -861,18 +861,9 @@ img {
   transition: transform 0.35s ease;
 }
 
-<<<<<<< HEAD
 /* 카드 공통 */
 .blog-card {
   border-radius: 20px;
-=======
-/* 카드 – 데스크톱에서 두 개 정도 보이게 */
-
-.learning-card {
-  flex: 0 0 calc(50% - 10px);
-  max-width: calc(50% - 10px);
-  border-radius: 22px;
->>>>>>> 9b355db (Update Learning Section)
   background: radial-gradient(circle at top left,
       rgba(15, 23, 42, 0.98),
       rgba(15, 23, 42, 0.96));
@@ -883,7 +874,6 @@ img {
   overflow: hidden;
   display: flex;
   flex-direction: row;
-<<<<<<< HEAD
   min-height: 140px;
 }
 
@@ -892,16 +882,6 @@ img {
   flex: 0 0 110px;
   /* 기존 160px → 조금 줄임 */
   max-width: 110px;
-=======
-  min-height: 180px;
-}
-
-/* 썸네일 영역 */
-
-.learning-thumb {
-  flex: 0 0 120px;
-  max-width: 120px;
->>>>>>> 9b355db (Update Learning Section)
   background: radial-gradient(circle at top, #0f172a, #020617);
   display: flex;
   align-items: center;
