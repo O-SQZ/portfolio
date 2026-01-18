@@ -936,7 +936,7 @@ img {
 /* 제목: 1번째 */
 .learning-title {
   order: 1;
-  margin: 0 0 10px;
+  margin: 4px 0 10px;
   font-size: 0.98rem;
   font-weight: 600;
   color: #f9fafb;
@@ -1116,13 +1116,14 @@ img {
   transform: translateY(-1px);
 }
 
-/* Learning footer & status badge */
+/* footer를 항상 카드의 맨 아래로 */
 .learning-footer {
-  margin-top: 10px;
   display: flex;
+  justify-content: space-between;  /* 왼쪽: 링크 / 오른쪽: 뱃지 */
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  margin-top: auto;                /* 위쪽 공간을 다 먹고 아래로 내려감 */
+  padding-top: 10px;               /* 수평선과 살짝 간격 */
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
 }
 
 .learning-status {
