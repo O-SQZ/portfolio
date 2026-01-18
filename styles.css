@@ -1012,50 +1012,57 @@ img {
   /* 클래스 없을 때 기본 칩 */
 }
 
-/* 태그별 색상 (Intro와 톤 맞춤) */
-.learning-tags li.tag-web {
+/* 태그별 색상 (Intro와 톤 맞춤, project, learning에서 동시 사용) */
+.learning-tags li.tag-web,
+.project-tags li.tag-web {
   background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
   border-color: rgba(59, 130, 246, 0.9);
   color: #f9fafb;
   text-shadow: 0 0 4px rgba(15, 23, 42, 0.9);
 }
 
-.learning-tags li.tag-auto {
+.learning-tags li.tag-auto,
+.project-tags li.tag-auto {
   background: linear-gradient(135deg, #15803d, #22c55e);
   border-color: rgba(34, 197, 94, 0.9);
   color: #f9fafb;
   text-shadow: 0 0 4px rgba(15, 23, 42, 0.9);
 }
 
-.learning-tags li.tag-se {
+.learning-tags li.tag-se,
+.project-tags li.tag-se {
   background: linear-gradient(135deg, #b91c1c, #f97316);
   border-color: rgba(248, 113, 22, 0.95);
   color: #f9fafb;
   text-shadow: 0 0 4px rgba(15, 23, 42, 0.9);
 }
 
-.learning-tags li.tag-linux {
+.learning-tags li.tag-linux,
+.project-tags li.tag-linux {
   background: linear-gradient(135deg, #facc15, #eab308);
   border-color: rgba(234, 179, 8, 0.95);
   color: #111827;
   text-shadow: none;
 }
 
-.learning-tags li.tag-pentest {
+.learning-tags li.tag-pentest,
+.project-tags li.tag-pentest {
   background: linear-gradient(135deg, #b91c1c, #f97373);
   border-color: rgba(248, 113, 113, 0.95);
   color: #fef2f2;
   text-shadow: 0 0 4px rgba(15, 23, 42, 0.9);
 }
 
-.learning-tags li.tag-network {
+.learning-tags li.tag-network,
+.project-tags li.tag-network {
   background: linear-gradient(135deg, #22c55e, #a3e635);
   border-color: rgba(132, 204, 22, 0.95);
   color: #052e16;
   text-shadow: none;
 }
 
-.learning-tags li.tag-etc {
+.learning-tags li.tag-etc,
+.project-tags li.tag-etc {
   background: linear-gradient(135deg, #4b5563, #9ca3af);
   border-color: rgba(156, 163, 175, 0.95);
   color: #f9fafb;
