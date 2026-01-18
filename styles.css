@@ -968,7 +968,7 @@ img {
 /* 내용: 3번째 */
 .learning-desc {
   order: 3;
-  margin: 2px 0 2px;
+  margin: 4px 0 4px;
   font-size: 0.85rem;
   color: #9ca3af;
   flex: 1;
@@ -991,7 +991,7 @@ img {
   display: block;
   width: 100%;
   height: 1px;
-  margin: 2px 0 2px;
+  margin: 6px 0 6px;
   background: linear-gradient(to right,
       rgba(148, 163, 184, 0.1),
       rgba(148, 163, 184, 0.5),
@@ -1118,12 +1118,13 @@ img {
 
 /* footer를 항상 카드의 맨 아래로 */
 .learning-footer {
+  order: 5;                        /* 제목/기간/내용/태그 다음에 오도록 */
   display: flex;
   justify-content: space-between;  /* 왼쪽: 링크 / 오른쪽: 뱃지 */
   align-items: center;
-  margin-top: auto;                /* 위쪽 공간을 다 먹고 아래로 내려감 */
-  padding-top: 10px;               /* 수평선과 살짝 간격 */
-  border-top: 1px solid rgba(148, 163, 184, 0.25);
+  margin-top: auto;                /* 위쪽 공간을 다 먹고 카드 맨 아래로 */
+  padding-top: 8px;                /* 태그와 약간만 간격 */
+  border-top: none;                /* 추가 수평선 제거 (위쪽 태그 구분선만 유지) */
 }
 
 .learning-status {
