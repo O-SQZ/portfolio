@@ -942,63 +942,67 @@ img {
   padding: 0;
 }
 
-/* Learning 태그 색상 – Intro 태그와 동일 톤 */
-.learning-tags .tag-web {              /* 웹 – 파랑 */
+/* 기본 칩 형태 */
+.learning-tags li {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(55, 65, 81, 0.9);
+  color: #e5e7eb;
+  background: rgba(15, 23, 42, 0.9); /* 클래스 없을 때용 기본 칩 */
+}
+
+/* === 태그별 색상 – Intro와 톤 맞추기 === */
+.learning-tags li.tag-web {              /* 웹 – 파랑 */
   background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
   border-color: rgba(59, 130, 246, 0.9);
   color: #f9fafb;
   text-shadow: 0 0 4px rgba(15, 23, 42, 0.9);
 }
 
-.learning-tags .tag-auto {             /* 자동화 – 초록 */
+.learning-tags li.tag-auto {             /* 자동화 – 초록 */
   background: linear-gradient(135deg, #15803d, #22c55e);
   border-color: rgba(34, 197, 94, 0.9);
   color: #f9fafb;
   text-shadow: 0 0 4px rgba(15, 23, 42, 0.9);
 }
 
-.learning-tags .tag-se {               /* 사회공학기법 – 주황 */
+.learning-tags li.tag-se {               /* 사회공학기법 – 주황 */
   background: linear-gradient(135deg, #b91c1c, #f97316);
   border-color: rgba(248, 113, 22, 0.95);
   color: #f9fafb;
   text-shadow: 0 0 4px rgba(15, 23, 42, 0.9);
 }
 
-.learning-tags .tag-linux {            /* 리눅스 – 노랑 */
+.learning-tags li.tag-linux {            /* 리눅스 – 노랑 */
   background: linear-gradient(135deg, #facc15, #eab308);
   border-color: rgba(234, 179, 8, 0.95);
   color: #111827;
   text-shadow: none;
 }
 
-.learning-tags .tag-pentest {          /* 모의해킹 – 빨강 */
+.learning-tags li.tag-pentest {          /* 모의해킹 – 빨강 */
   background: linear-gradient(135deg, #b91c1c, #f97373);
   border-color: rgba(248, 113, 113, 0.95);
   color: #fef2f2;
   text-shadow: 0 0 4px rgba(15, 23, 42, 0.9);
 }
 
-.learning-tags .tag-network {          /* 네트워크 – 연두색 */
+.learning-tags li.tag-network {          /* 네트워크 – 연두색 */
   background: linear-gradient(135deg, #22c55e, #a3e635);
   border-color: rgba(132, 204, 22, 0.95);
-  color: #052e16;       /* 밝은 연두라 글씨는 진한 초록 */
+  color: #052e16;
   text-shadow: none;
 }
 
-.learning-tags .tag-etc {          /* 기타 – 고급스러운 그레이 */
+.learning-tags li.tag-etc {              /* 기타 – 그레이 그라데이션 */
   background: linear-gradient(135deg, #4b5563, #9ca3af);
   border-color: rgba(156, 163, 175, 0.95);
   color: #f9fafb;
   text-shadow: 0 0 4px rgba(15, 23, 42, 0.6);
-}
-
-.learning-tags li {
-  padding: 2px 8px;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(55, 65, 81, 0.9);
-  font-size: 0.75rem;
-  color: #e5e7eb;
 }
 
 .learning-title {
@@ -1162,6 +1166,35 @@ img {
 .wargame-header .section-desc a:hover {
   color: #e5e7eb;                                /* hover 시 약간 더 밝게 */
   border-bottom-color: rgba(248, 113, 22, 0.8); /* 주황 계열로 포인트 */
+}
+
+/* 워게임 프라이머리 버튼 */
+.wargame-more-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(90deg, #f97316, #fbbf24);
+  color: #111827;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 12px 30px rgba(248, 113, 22, 0.35);
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.12s ease, filter 0.12s ease;
+}
+
+.wargame-more-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 36px rgba(248, 113, 22, 0.45);
+  filter: brightness(1.02);
+}
+
+.wargame-more-button:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 20px rgba(248, 113, 22, 0.3);
 }
 
 /* 모바일에서 여백만 약간 조정 */
