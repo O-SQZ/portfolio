@@ -861,8 +861,8 @@ img {
   transition: transform 0.35s ease;
 }
 
-/* 카드 공통 */
-.blog-card {
+/* 카드 공통 (Learning) */
+.learning-card {
   border-radius: 20px;
   background: radial-gradient(circle at top left,
       rgba(15, 23, 42, 0.98),
@@ -874,14 +874,13 @@ img {
   overflow: hidden;
   display: flex;
   flex-direction: row;
-  min-height: 140px;
+  min-height: 140px;          /* 카드 기본 높이 */
 }
 
-/* 썸네일 영역 */
-.blog-thumb {
-  flex: 0 0 110px;
-  /* 기존 160px → 조금 줄임 */
-  max-width: 110px;
+/* 썸네일 영역 – 이미지 없어도 항상 일정 너비/높이 확보 */
+.learning-thumb {
+  flex: 0 0 120px;            /* 썸네일 영역 고정 너비 */
+  max-width: 120px;
   background: radial-gradient(circle at top, #0f172a, #020617);
   display: flex;
   align-items: center;
@@ -889,10 +888,24 @@ img {
   padding: 10px;
 }
 
+.learning-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* 썸네일이 아직 없을 때 Placeholder */
 .learning-thumb-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 80px;           /* 빈칸이어도 어느 정도 높이 유지 */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 0.8rem;
   color: #9ca3af;
-  border-radius: 999px;
+  border-radius: 12px;
   border: 1px dashed rgba(148, 163, 184, 0.7);
   padding: 4px 10px;
 }
@@ -927,6 +940,56 @@ img {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+/* Learning 태그 색상 – Intro 태그와 동일 톤 */
+.learning-tags .tag-web {              /* 웹 – 파랑 */
+  background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
+  border-color: rgba(59, 130, 246, 0.9);
+  color: #f9fafb;
+  text-shadow: 0 0 4px rgba(15, 23, 42, 0.9);
+}
+
+.learning-tags .tag-auto {             /* 자동화 – 초록 */
+  background: linear-gradient(135deg, #15803d, #22c55e);
+  border-color: rgba(34, 197, 94, 0.9);
+  color: #f9fafb;
+  text-shadow: 0 0 4px rgba(15, 23, 42, 0.9);
+}
+
+.learning-tags .tag-se {               /* 사회공학기법 – 주황 */
+  background: linear-gradient(135deg, #b91c1c, #f97316);
+  border-color: rgba(248, 113, 22, 0.95);
+  color: #f9fafb;
+  text-shadow: 0 0 4px rgba(15, 23, 42, 0.9);
+}
+
+.learning-tags .tag-linux {            /* 리눅스 – 노랑 */
+  background: linear-gradient(135deg, #facc15, #eab308);
+  border-color: rgba(234, 179, 8, 0.95);
+  color: #111827;
+  text-shadow: none;
+}
+
+.learning-tags .tag-pentest {          /* 모의해킹 – 빨강 */
+  background: linear-gradient(135deg, #b91c1c, #f97373);
+  border-color: rgba(248, 113, 113, 0.95);
+  color: #fef2f2;
+  text-shadow: 0 0 4px rgba(15, 23, 42, 0.9);
+}
+
+.learning-tags .tag-network {          /* 네트워크 – 연두색 */
+  background: linear-gradient(135deg, #22c55e, #a3e635);
+  border-color: rgba(132, 204, 22, 0.95);
+  color: #052e16;       /* 밝은 연두라 글씨는 진한 초록 */
+  text-shadow: none;
+}
+
+.learning-tags .tag-etc {          /* 기타 – 고급스러운 그레이 */
+  background: linear-gradient(135deg, #4b5563, #9ca3af);
+  border-color: rgba(156, 163, 175, 0.95);
+  color: #f9fafb;
+  text-shadow: 0 0 4px rgba(15, 23, 42, 0.6);
 }
 
 .learning-tags li {
