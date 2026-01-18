@@ -790,15 +790,13 @@ img {
   justify-content: flex-end;
   align-items: center;
   margin-bottom: 18px;
-  gap: 8px;
 }
 
 .learning-filters {
   display: flex;
   gap: 10px;
   align-items: center;
-  flex-wrap: wrap;
-  padding: 6px 10px;
+  padding: 4px 6px;
   border-radius: 999px;
   background: radial-gradient(circle at top left,
       rgba(15, 23, 42, 0.96),
@@ -814,20 +812,19 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 12px;
+  padding: 4px 10px;
   border-radius: 999px;
   background: radial-gradient(circle at top left,
       rgba(15, 23, 42, 0.98),
       rgba(15, 23, 42, 0.94));
   border: 1px solid rgba(75, 85, 99, 0.9);
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.85);
 }
 
-/* 셀렉트 자체는 투명 + 기본 테두리 제거 */
-.learning-filter-label select {
+.learning-filter-label select,
+.learning-controls select {
   background: transparent;
   border: none;
-  padding: 2px 20px 2px 6px; /* 오른쪽 공간은 커스텀 화살표용 */
+  padding: 2px 20px 2px 6px; /* 오른쪽은 화살표 공간 */
   font-size: 0.78rem;
   color: #e5e7eb;
   outline: none;
@@ -846,12 +843,18 @@ img {
 }
 
 /* 슬라이더 레이아웃 */
+/* Learning 캐러셀 래퍼 – Projects와 비슷한 구조 */
+.learning-carousel {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* 버튼과 카드 사이 간격 */
+}
 
 .learning-window {
   position: relative;
   overflow: hidden;
-  padding: 8px 32px;
-  /* 좌우 버튼이 카드 가까이에 오도록 여유 공간 확보 */
+  flex: 1;
+  padding: 0; /* 기존 좌우 32px 패딩 제거 → 버튼을 카드 쪽으로 붙이기 */
 }
 
 .learning-track {
@@ -859,6 +862,7 @@ img {
   gap: 20px;
   transition: transform 0.28s ease-out;
   will-change: transform;
+  padding: 0 4px; /* 좌우 약간만 여백 */
 }
 
 /* 카드 공통 (Learning) */
@@ -1082,11 +1086,8 @@ img {
 }
 
 /* 좌우 버튼 */
-
+ 
 .learning-carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   width: 32px;
   height: 32px;
   border-radius: 999px;
@@ -1105,15 +1106,7 @@ img {
 .learning-carousel-btn:hover {
   background: rgba(30, 64, 175, 0.95);
   box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.7);
-  transform: translateY(-50%) translateY(-1px);
-}
-
-.learning-carousel-btn-prev {
-  left: 10px;
-}
-
-.learning-carousel-btn-next {
-  right: 10px;
+  transform: translateY(-1px);
 }
 
 /* 반응형 */
@@ -1126,14 +1119,6 @@ img {
   .learning-card {
     flex: 0 0 100%;
     max-width: 100%;
-  }
-
-  .learning-carousel-btn-prev {
-    left: 8px;
-  }
-
-  .learning-carousel-btn-next {
-    right: 8px;
   }
 }
 
@@ -1149,6 +1134,11 @@ img {
   .learning-thumb {
     flex: 0 0 110px;
     max-width: 110px;
+  }
+  .learning-carousel-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 1rem;
   }
 }
 
