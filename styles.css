@@ -789,19 +789,28 @@ img {
 
 .learning-filter-label {
   font-size: 0.8rem;
-  color: #9ca3af;
+  color: #e5e7eb;
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: radial-gradient(circle at top left,
+      rgba(15, 23, 42, 0.96),
+      rgba(15, 23, 42, 0.9));
+  border: 1px solid rgba(55, 65, 81, 0.9);
 }
 
+/* 셀렉트 자체는 투명 + 기본 테두리 제거 */
 .learning-filter-label select {
-  background-color: #020617;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.4);
-  padding: 4px 10px;
+  background: transparent;
+  border: none;
+  padding: 0 2px;
   font-size: 0.78rem;
   color: #e5e7eb;
+  outline: none;
+  appearance: none;               /* 크롬/사파리 */
+  -moz-appearance: none;          /* 파이어폭스 */
 }
 
 /* 슬라이더 레이아웃 */
@@ -862,7 +871,7 @@ img {
 
 /* 호버 시 살짝 확대 */
 .learning-card:hover .learning-thumb img {
-  transform: scale(3);
+  transform: scale(1.35);
 }
 
 /* 썸네일 placeholder */
