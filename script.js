@@ -237,12 +237,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function moveNext() {
-      currentIndex += getCardsPerView();
+      const cardsPerView = getCardsPerView();
+      const maxIndex = Math.max(0, filteredCards.length - cardsPerView);
+
+      if (currentIndex >= maxIndex) {
+        // 우측 끝에서 한 번 더 → 다시 처음
+        currentIndex = 0;
+      } else {
+        currentIndex += cardsPerView;
+      }
+
       updateTransform();
     }
 
     function movePrev() {
-      currentIndex -= getCardsPerView();
+      const cardsPerView = getCardsPerView();
+      const maxIndex = Math.max(0, filteredCards.length - cardsPerView);
+
+      if (currentIndex <= 0) {
+        // 맨 앞에서 왼쪽 → 마지막 화면으로
+        currentIndex = maxIndex;
+      } else {
+        currentIndex -= cardsPerView;
+      }
+
       updateTransform();
     }
 
