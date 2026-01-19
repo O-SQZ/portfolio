@@ -824,7 +824,8 @@ img {
 .learning-controls select {
   background: transparent;
   border: none;
-  padding: 2px 20px 2px 6px; /* 오른쪽은 화살표 공간 */
+  padding: 2px 20px 2px 6px;
+  /* 오른쪽은 화살표 공간 */
   font-size: 0.78rem;
   color: #e5e7eb;
   outline: none;
@@ -847,14 +848,16 @@ img {
 .learning-carousel {
   display: flex;
   align-items: center;
-  gap: 16px; /* 버튼과 카드 사이 간격 */
+  gap: 16px;
+  /* 버튼과 카드 사이 간격 */
 }
 
 .learning-window {
   position: relative;
   overflow: hidden;
   flex: 1;
-  padding: 0; /* 기존 좌우 32px 패딩 제거 → 버튼을 카드 쪽으로 붙이기 */
+  padding: 0;
+  /* 기존 좌우 32px 패딩 제거 → 버튼을 카드 쪽으로 붙이기 */
 }
 
 .learning-track {
@@ -862,7 +865,8 @@ img {
   gap: 20px;
   transition: transform 0.28s ease-out;
   will-change: transform;
-  padding: 0 4px; /* 좌우 약간만 여백 */
+  padding: 0 4px;
+  /* 좌우 약간만 여백 */
 }
 
 /* 카드 공통 (Learning) */
@@ -1074,7 +1078,8 @@ img {
   order: 5;
   margin-top: 8px;
   margin-bottom: 4px;
-  margin-left: auto;              /* footer 내에서 우측 끝으로 정렬 */
+  margin-left: auto;
+  /* footer 내에서 우측 끝으로 정렬 */
   font-size: 0.8rem;
   color: #bfdbfe;
   text-decoration: none;
@@ -1094,7 +1099,7 @@ img {
 }
 
 /* 좌우 버튼 */
- 
+
 .learning-carousel-btn {
   width: 32px;
   height: 32px;
@@ -1119,16 +1124,21 @@ img {
 
 /* footer를 항상 카드의 맨 아래로 */
 .learning-footer {
-  order: 5;                        /* 제목/기간/내용/태그 다음에 오도록 */
+  order: 5;
+  /* 제목/기간/내용/태그 다음에 오도록 */
   display: flex;
   align-items: center;
-  margin-top: auto;                /* 위쪽 공간을 다 먹고 카드 맨 아래로 */
-  padding-top: 8px;                /* 태그와 약간만 간격 */
-  border-top: none;                /* 추가 수평선 제거 (위쪽 태그 구분선만 유지) */
+  margin-top: auto;
+  /* 위쪽 공간을 다 먹고 카드 맨 아래로 */
+  padding-top: 8px;
+  /* 태그와 약간만 간격 */
+  border-top: none;
+  /* 추가 수평선 제거 (위쪽 태그 구분선만 유지) */
 }
 
 .learning-status {
-  position: absolute;               /* 카드 전체 기준으로 배치 */
+  position: absolute;
+  /* 카드 전체 기준으로 배치 */
   top: 10px;
   left: 10px;
   z-index: 2;
@@ -1208,10 +1218,156 @@ img {
     flex: 0 0 110px;
     max-width: 110px;
   }
+
   .learning-carousel-btn {
     width: 28px;
     height: 28px;
     font-size: 1rem;
+  }
+}
+
+/* =============================
+   Achievements Section
+   ============================= */
+.section-achievements {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.achievements-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(56px, 72px));
+  /* 8 x 3 느낌 */
+  gap: 16px;
+  justify-content: center;
+}
+
+/* 개별 업적 카드 */
+.achievement-card {
+  position: relative;
+  width: 72px;
+  height: 72px;
+}
+
+.achievement-badge {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  background: radial-gradient(circle at 30% 20%,
+      rgba(255, 255, 255, 0.08),
+      rgba(15, 23, 42, 0.98));
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  cursor: default;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.85);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    filter 0.2s ease;
+}
+
+.achievement-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(1) opacity(0.7);
+}
+
+/* 잠금 상태 기본 톤 */
+.achievement-card.is-locked .achievement-badge {
+  background: radial-gradient(circle at top, #111827, #020617);
+  border-color: rgba(55, 65, 81, 0.9);
+}
+
+/* 호버 시 살짝 떠오르는 느낌 */
+.achievement-card:hover .achievement-badge {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 16px 38px rgba(15, 23, 42, 0.95);
+  filter: brightness(1.1);
+}
+
+/* 설명 툴팁 */
+.achievement-tooltip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%);
+  width: 260px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: radial-gradient(circle at top left,
+      rgba(37, 99, 235, 0.22),
+      rgba(15, 23, 42, 0.98));
+  border: 1px solid rgba(59, 130, 246, 0.6);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.98);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  color: #e5e7eb;
+  z-index: 20;
+}
+
+.achievement-tooltip::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  border-width: 8px 8px 0 8px;
+  border-style: solid;
+  border-color: rgba(15, 23, 42, 0.98) transparent transparent transparent;
+}
+
+.achievement-card:hover .achievement-tooltip {
+  opacity: 1;
+  transform: translate(-50%, -6px);
+}
+
+/* 툴팁 안 텍스트 */
+.achievement-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.achievement-meta {
+  font-size: 0.75rem;
+  color: #a5b4fc;
+  margin-bottom: 6px;
+}
+
+.achievement-desc {
+  font-size: 0.78rem;
+  color: #9ca3af;
+  line-height: 1.45;
+}
+
+/* 반응형: 폭 줄어들면 열 수 줄이기 */
+@media (max-width: 1200px) {
+  .achievements-grid {
+    grid-template-columns: repeat(6, minmax(56px, 72px));
+  }
+}
+
+@media (max-width: 900px) {
+  .achievements-grid {
+    grid-template-columns: repeat(4, minmax(56px, 72px));
+  }
+}
+
+@media (max-width: 600px) {
+  .achievements-grid {
+    grid-template-columns: repeat(3, minmax(56px, 72px));
   }
 }
 
@@ -1345,6 +1501,8 @@ img {
   background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), transparent 55%),
     radial-gradient(circle at top right, rgba(251, 146, 60, 0.08), transparent 60%),
     rgba(8, 15, 35, 0.98);
+  scroll-snap-align: start;
+  min-height: 40vh;
 }
 
 .footer-inner {
@@ -1544,7 +1702,8 @@ img {
     display: flex;
     gap: 16px;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: x proximity;
+    /*약간 여유로운 페이지 고정으로 수정*/
   }
 
   .intro-slide {
