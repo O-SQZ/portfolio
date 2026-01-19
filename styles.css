@@ -629,6 +629,26 @@ img {
   margin: 0 0 6px;
 }
 
+/* Projects: 제목 링크 기본/hover 스타일 */
+.project-title a {
+  color: inherit;          /* 주변 텍스트 색상 따라감 */
+  text-decoration: none;   /* 기본 파란 밑줄 제거 */
+}
+
+.project-title a:visited {
+  color: inherit;          /* 방문 후 보라색으로 바뀌지 않게 */
+}
+
+.project-title a:hover {
+  color: #ff8800;          /* 포트폴리오에서 쓰는 주황 포인트 */
+  text-decoration: none;   /* hover 시에도 밑줄 없이 색상만 변경 */
+}
+
+.project-title a:focus-visible {
+  outline: 2px solid rgba(255, 136, 0, 0.7);
+  outline-offset: 2px;     /* 키보드 포커스 접근성 확보용 */
+}
+
 .project-desc {
   font-size: 0.9rem;
   color: #9ca3af;
