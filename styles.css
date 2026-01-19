@@ -1255,11 +1255,10 @@ img {
 .achievements-grid {
   position: relative;
   z-index: 1;
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 18px;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
-  /* 최대 8개까지 한 줄에 보이도록 컨테이너 폭 제한 */
   max-width: calc(8 * 96px + 7 * 18px);
   margin: 0 auto;
 }
