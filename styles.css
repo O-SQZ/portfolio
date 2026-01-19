@@ -1256,22 +1256,25 @@ img {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(8, minmax(56px, 72px));
-  gap: 16px;
+  gap: 18px;
   justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  /* 최대 8개까지 한 줄에 보이도록 컨테이너 폭 제한 */
+  max-width: calc(8 * 96px + 7 * 18px);
+  margin: 0 auto;
 }
 
 /* 개별 업적 카드 */
 .achievement-card {
   position: relative;
-  width: 72px;
-  height: 72px;
+  width: 96px;
+  height: 96px;
 }
 
 .achievement-badge {
   width: 100%;
   height: 100%;
-  border-radius: 14px;
+  border-radius: 22px;
   background: radial-gradient(circle at 30% 20%,
       rgba(255, 255, 255, 0.08),
       rgba(15, 23, 42, 0.98));
@@ -1279,7 +1282,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;
+  padding: 8px;
   cursor: default;
   box-shadow: 0 10px 22px rgba(15, 23, 42, 0.85);
   transition:
@@ -1295,6 +1298,9 @@ img {
   height: 100%;
   object-fit: contain;
   filter: grayscale(1) opacity(0.7);
+  border-radius: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  box-sizing: border-box;
 }
 
 /* 잠금 상태 기본 톤 */
@@ -1369,7 +1375,8 @@ img {
 /* 반응형: 폭 줄어들면 열 수 줄이기 */
 @media (max-width: 1200px) {
   .achievements-grid {
-    grid-template-columns: repeat(6, minmax(56px, 72px));
+    /* 데스크톱보다 폭이 줄어들면 최대 6개 정도까지만 한 줄에 배치 */
+    max-width: calc(6 * 96px + 5 * 18px);
   }
 
   .achievements-wrapper::before {
@@ -1386,8 +1393,8 @@ img {
         rgba(156, 163, 175, 0.3) 0px,
         rgba(156, 163, 175, 0.3) 2px,
         transparent 2px,
-        transparent 88px
-        /* 72px 카드 + 16px gap 기준 */
+        transparent 114px
+        /* 96px 카드 + 18px gap 기준 */
       );
     opacity: 0.45;
     pointer-events: none;
@@ -1397,13 +1404,13 @@ img {
 
 @media (max-width: 900px) {
   .achievements-grid {
-    grid-template-columns: repeat(4, minmax(56px, 72px));
+    max-width: calc(4 * 96px + 3 * 18px);
   }
 }
 
 @media (max-width: 600px) {
   .achievements-grid {
-    grid-template-columns: repeat(3, minmax(56px, 72px));
+    max-width: calc(3 * 96px + 2 * 18px);
   }
 }
 
