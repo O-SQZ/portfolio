@@ -723,16 +723,25 @@ img {
   white-space: nowrap;
 }
 
+/* 완료 */
 .project-status-done {
   border-color: rgba(52, 211, 153, 0.9);
   color: #a7f3d0;
   background: rgba(6, 95, 70, 0.5);
 }
 
+/* 개발중 */
+.project-status-developing {
+  border-color: rgba(234, 179, 8, 0.9);   
+  color: #facc15;                         
+  background: rgba(113, 63, 18, 0.5);     
+}
+
+/* 예정 */
 .project-status-planning {
-  border-color: rgba(234, 179, 8, 0.9);
-  color: #facc15;
-  background: rgba(113, 63, 18, 0.5);
+  border-color: rgba(251, 113, 133, 0.9); 
+  color: #fed7e2;                          
+  background: rgba(131, 24, 67, 0.45);     
 }
 
 /* 반응형: 카드 너비 조정 */
