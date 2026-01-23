@@ -275,6 +275,12 @@ img {
 }
 
 /* 태그별 색 + 그라데이션 */
+.tag-pentest {
+  background: linear-gradient(135deg, #fb7185, #be123c);
+  color: #fee2e2;
+  box-shadow: 0 0 18px rgba(248, 113, 113, 0.35);
+}
+
 .tag-web {
   background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
   border-color: rgba(59, 130, 246, 0.9);
