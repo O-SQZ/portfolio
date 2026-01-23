@@ -284,16 +284,19 @@ img {
 .tag-web {
   background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
   border-color: rgba(59, 130, 246, 0.9);
+  box-shadow: 0 0 18px rgba(59, 130, 246, 0.35);
 }
 
 .tag-auto {
   background: linear-gradient(135deg, #15803d, #22c55e);
   border-color: rgba(34, 197, 94, 0.9);
+  box-shadow: 0 0 18px rgba(34, 197, 94, 0.35);
 }
 
 .tag-se {
   background: linear-gradient(135deg, #b91c1c, #f97316);
   border-color: rgba(248, 113, 22, 0.95);
+  box-shadow: 0 0 18px rgba(248, 113, 22, 0.35);
 }
 
 /* 소개 텍스트 */
