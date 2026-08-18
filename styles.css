@@ -1265,19 +1265,32 @@ img {
 }
 
 /* =============================
-   Achievements Section
+   Roadmap Section
    ============================= */
-.section-achievements {
+.section-roadmap {
+  min-height: 100vh;
   padding-top: 120px;
   padding-bottom: 120px;
 }
 
-.achievements-header {
+.roadmap-header {
+  text-align: center;
+}
+
+/* =============================
+   Achievements Section
+   ============================= */
+.section-certificates {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.certificates-header {
   text-align: center;
   margin-bottom: 40px;
 }
 
-.section-achievements .section-desc {
+.section-certificates .section-desc {
   text-align: center;
   max-width: 720px;
   margin: 0 auto 32px;
@@ -1309,6 +1322,7 @@ img {
 }
 
 .achievement-badge {
+  position: relative;
   width: 100%;
   height: 100%;
   border-radius: 22px;
@@ -1348,11 +1362,33 @@ img {
 
 /* 유효 기간이 지난 자격 */
 .achievement-card.is-expired .achievement-badge {
-  filter: grayscale(1) opacity(0.55);
+  background: radial-gradient(circle at top, #111827, #020617);
+  border-color: rgba(100, 116, 139, 0.45);
+}
+
+.achievement-card.is-expired .achievement-badge img {
+  filter: grayscale(1);
+  opacity: 0.32;
+}
+
+.achievement-card.is-expired .achievement-badge::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 8%;
+  width: 84%;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(248, 113, 113, 0.9);
+  box-shadow: 0 0 8px rgba(248, 113, 113, 0.55);
+  transform: translateY(-50%) rotate(-12deg);
+  pointer-events: none;
 }
 
 .achievement-card.is-expired .achievement-tooltip {
   filter: grayscale(0.75);
+  opacity: 0;
 }
 
 .achievement-card.is-expired .achievement-title,
@@ -1363,7 +1399,11 @@ img {
 }
 
 .achievement-card.is-expired:hover .achievement-badge {
-  filter: grayscale(1) opacity(0.7) brightness(1.05);
+  filter: brightness(1.05);
+}
+
+.achievement-card.is-expired:hover .achievement-badge img {
+  opacity: 0.42;
 }
 
 /* 호버 시 살짝 떠오르는 느낌 */
@@ -1472,122 +1512,165 @@ img {
 }
 
 /* =========================
-   Wargame
+   Achievements Hub
    ========================= */
-
-.section-wargame {
+.section-achievements-hub {
   align-items: flex-start;
-  padding-top: 40px;
+  padding-top: 80px;
+  padding-bottom: 120px;
 }
 
-.section-wargame .section-inner {
-  max-width: 960px;
+.section-achievements-hub .section-inner {
+  max-width: 1080px;
   margin: 0 auto;
 }
 
-.wargame-header {
+.achievements-hub-header {
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 36px;
 }
 
-.wargame-header .section-heading {
+.achievements-hub-header .section-heading {
   margin-bottom: 8px;
 }
 
-.wargame-header .section-desc {
+.achievements-hub-header .section-desc {
+  max-width: 620px;
   margin: 0 auto;
-  max-width: 520px;
 }
 
-/* Dreamhack 카드 2장 세로 배치 */
-.wargame-stats {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  align-items: center;
-}
-
-.wargame-stat-img {
-  width: 100%;
-  max-width: 520px;
-  border-radius: 22px;
-  background: #020617;
-  box-shadow:
-    0 14px 30px rgba(15, 23, 42, 0.9),
-    0 0 0 1px rgba(15, 23, 42, 0.8);
-}
-
-/* 아래 프로필 이동 버튼 재사용 */
-.wargame-more-wrapper {
-  margin-top: 28px;
-  display: flex;
-  justify-content: center;
-}
-
-.wargame-more-button {
-  /* 필요하면 Wargame 전용 여백/크기만 살짝 조정 */
-  padding-inline: 30px;
-}
-
-/* Wargame 헤더 안의 크레딧 링크 스타일 */
-.wargame-header .section-desc a {
+.achievements-hub-header .section-desc a {
   color: #9ca3af;
-  /* 전체 톤과 비슷한 회색 계열 */
+  font-size: 0.8rem;
   text-decoration: none;
-  border-bottom: 1px dashed rgba(148, 163, 184, 0.6);
-  /* 실선 대신 점선 밑줄 */
-  padding-bottom: 1px;
-  font-size: 0.85rem;
+  border-bottom: 1px dashed rgba(148, 163, 184, 0.55);
 }
 
-.wargame-header .section-desc a:hover {
-  color: #e5e7eb;
-  /* hover 시 약간 더 밝게 */
-  border-bottom-color: rgba(248, 113, 22, 0.8);
-  /* 주황 계열로 포인트 */
+.achievement-platform-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 
-/* 워게임 프라이머리 버튼 */
-.wargame-more-button {
+.achievement-platform-card {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid rgba(59, 130, 246, 0.32);
+  border-radius: 22px;
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.96));
+  box-shadow: 0 18px 40px rgba(2, 6, 23, 0.42);
+}
+
+.achievement-platform-card-live {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.achievement-platform-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.achievement-platform-card h3 {
+  margin: 5px 0 10px;
+  color: #f8fafc;
+  font-size: 1.05rem;
+}
+
+.achievement-platform-card p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.achievement-platform-label {
+  color: #60a5fa;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.achievement-platform-status,
+.achievement-platform-pending,
+.achievement-platform-date {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 22px;
+  width: fit-content;
+  margin-top: 16px;
+  padding: 5px 9px;
   border-radius: 999px;
-  border: none;
-  background: linear-gradient(90deg, #f97316, #fbbf24);
-  color: #111827;
-  font-size: 0.9rem;
+  color: #94a3b8;
+  background: rgba(51, 65, 85, 0.5);
+  font-size: 0.7rem;
+}
+
+.achievement-platform-status {
+  margin-top: 0;
+  color: #86efac;
+  background: rgba(22, 163, 74, 0.16);
+}
+
+.achievement-platform-stats {
+  display: grid;
+  gap: 12px;
+}
+
+.achievement-platform-stats a {
+  display: block;
+}
+
+.achievement-stat-img {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+  background: #020617;
+}
+
+.achievement-platform-link {
+  display: inline-flex;
+  gap: 6px;
+  margin-top: 18px;
+  color: #fbbf24;
+  font-size: 0.82rem;
   font-weight: 600;
   text-decoration: none;
-  box-shadow: 0 12px 30px rgba(248, 113, 22, 0.35);
-  cursor: pointer;
-  transition: transform 0.08s ease, box-shadow 0.12s ease, filter 0.12s ease;
 }
 
-.wargame-more-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 16px 36px rgba(248, 113, 22, 0.45);
-  filter: brightness(1.02);
+.achievement-platform-badge {
+  display: block;
+  width: 72px;
+  height: 72px;
+  margin: 16px 0 12px;
+  border-radius: 18px;
+  object-fit: cover;
 }
 
-.wargame-more-button:active {
-  transform: translateY(0);
-  box-shadow: 0 8px 20px rgba(248, 113, 22, 0.3);
+.achievement-platform-card-pending {
+  border-style: dashed;
+  background: rgba(15, 23, 42, 0.5);
 }
 
-/* 모바일에서 여백만 약간 조정 */
-@media (max-width: 767px) {
-  .section-wargame {
-    padding-top: 48px;
+@media (max-width: 900px) {
+  .achievement-platform-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .section-achievements-hub {
+    padding-top: 64px;
   }
 
-  .wargame-stat-img {
-    max-width: 100%;
+  .achievement-platform-grid {
+    grid-template-columns: 1fr;
   }
 
-  .wargame-more-wrapper {
-    margin-top: 24px;
+  .achievement-platform-card-live {
+    grid-column: auto;
+    grid-row: auto;
   }
 }
 
