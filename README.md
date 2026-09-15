@@ -33,10 +33,10 @@ GitHub Pages를 통해 아래 주소로 배포됩니다.
 
 ## 4. 주요 공개 항목
 
-- **PenTri**: Chrome Web Store에 공개한 웹 진단 보조 확장 프로그램
-- **OvenForge**: ADB 연결·프로젝트 관리·기초 정적 분석을 구현한 Android 진단 보조 프로토타입
-- **OWASP Top 10 2025 한국어 번역**: 번역 및 검수 참여
-- **Top 10 Mapping Reporter**: 관찰 가능한 증적을 OWASP Top 10 2025에 매핑하는 CLI 리포터
+- **[PenTri](https://github.com/O-SQZ/pentri)**: 웹 보안 수동 진단 중 필요한 정보를 수집하고 정리하는 Chrome 확장 프로그램 (v1.10 소스 공개, Web Store 업데이트 심사 중)
+- **OvenForge**: ADB 연결·프로젝트 관리·기초 정적 분석을 지원하는 비공개 Android 보안 진단 도구 (Private Alpha)
+- **[Top10 Mapping Reporter](https://github.com/O-SQZ/Top10-Mapping-Reporter)**: 웹 보안 설정의 관찰 가능한 근거를 OWASP Top 10 2025에 매핑하는 CLI 도구 (v0.1)
+- **[OWASP Top 10 2025 한국어 번역](https://github.com/O-SQZ/Top10-ko)**: 포크 저장소를 통한 번역 및 검수 기여
 
 회사 및 고객사의 보고서, 증적, 점검 기준 원문은 이 포트폴리오에서 공개하지 않습니다.
 
