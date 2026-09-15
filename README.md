@@ -10,7 +10,7 @@ GitHub Pages를 통해 아래 주소로 배포됩니다.
 ## 1. 목적
 
 - 정보보안 직무 지원 시 제출할 **웹 포트폴리오 페이지**
-- 웹 보안 / 보안 자동화 / 사회공학기법 관련 **프로젝트 및 활동 정리**
+- 웹·모바일·AI/LLM 보안 진단 경험과 **실제 프로젝트 및 공개 활동 정리**
 - Dreamhack Wargame, Tistory 블로그, GitHub 등의 **흩어진 기록을 한 곳에서 정리**
 
 ---
@@ -31,6 +31,15 @@ GitHub Pages를 통해 아래 주소로 배포됩니다.
 - 해당 코드와 설정 파일은 **MIT License** 하에 자유롭게 사용, 수정, 재배포할 수 있습니다.
 - 자세한 내용은 저장소 루트의 [`LICENSE`](./LICENSE) 파일을 참고해 주세요.
 
+## 4. 주요 공개 항목
+
+- **PenTri**: Chrome Web Store에 공개한 웹 진단 보조 확장 프로그램
+- **OvenForge**: ADB 연결·프로젝트 관리·기초 정적 분석을 구현한 Android 진단 보조 프로토타입
+- **OWASP Top 10 2025 한국어 번역**: 번역 및 검수 참여
+- **Top 10 Mapping Reporter**: 관찰 가능한 증적을 OWASP Top 10 2025에 매핑하는 CLI 리포터
+
+회사 및 고객사의 보고서, 증적, 점검 기준 원문은 이 포트폴리오에서 공개하지 않습니다.
+
 ### 로고 및 이미지 자산
 
 - `assets/OSQZ_logo.png` 및 개인 브랜딩을 위한 이미지 파일은 **MIT License에 포함되지 않습니다.**
@@ -45,5 +54,3 @@ GitHub Pages를 통해 아래 주소로 배포됩니다.
     [`with-developer/dreamhack-readme-stats`](https://github.com/with-developer/dreamhack-readme-stats)에서 제공하는 퍼블릭 API를 사용합니다.
   - 해당 서비스 및 이미지의 저작권과 라이선스는 **원 저작자와 Dreamhack**에 있습니다.
   - 이 저장소의 MIT License는 Dreamhack 서비스나 해당 리소스에는 적용되지 않습니다.
-
-
