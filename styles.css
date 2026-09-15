@@ -1265,19 +1265,6 @@ img {
 }
 
 /* =============================
-   Roadmap Section
-   ============================= */
-.section-roadmap {
-  min-height: 100vh;
-  padding-top: 120px;
-  padding-bottom: 120px;
-}
-
-.roadmap-header {
-  text-align: center;
-}
-
-/* =============================
    Achievements Section
    ============================= */
 .section-certificates {
@@ -1319,6 +1306,10 @@ img {
   position: relative;
   width: 96px;
   height: 96px;
+}
+
+.achievement-mobile-label {
+  display: none;
 }
 
 .achievement-badge {
@@ -1900,6 +1891,10 @@ img {
 
 /* 모바일: Intro 슬라이드 + 모바일 네비 */
 @media (max-width: 767px) {
+  #page {
+    scroll-snap-type: y proximity;
+  }
+
   .top-nav {
     padding-inline: 16px;
   }
@@ -1926,11 +1921,101 @@ img {
   }
 
   .section {
-    padding: 64px 20px 32px;
+    min-height: calc(100vh - 57px);
+    align-items: flex-start;
+    padding: 48px 20px 40px;
   }
 
   .section-inner {
     max-width: 100%;
+  }
+
+  .section-projects,
+  .section-certificates,
+  .section-achievements-hub {
+    padding-top: 48px;
+    padding-bottom: 40px;
+  }
+
+  .project-carousel,
+  .learning-carousel {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr) 28px;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .project-window,
+  .learning-window {
+    min-width: 0;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .project-track,
+  .learning-track {
+    padding: 0;
+  }
+
+  .project-card,
+  .learning-card {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .project-card {
+    min-height: 0;
+  }
+
+  .learning-card {
+    flex-direction: column;
+  }
+
+  .learning-thumb {
+    flex: 0 0 132px;
+    width: 100%;
+    max-width: none;
+    min-height: 132px;
+    padding: 14px 56px;
+  }
+
+  .learning-thumb img {
+    max-height: 104px;
+  }
+
+  .learning-body {
+    min-width: 0;
+    padding: 18px;
+  }
+
+  .achievements-wrapper {
+    margin-top: 16px;
+    padding: 16px 0;
+  }
+
+  .achievement-tooltip {
+    display: none;
+  }
+
+  .achievement-card {
+    width: 100px;
+    height: auto;
+    text-align: center;
+  }
+
+  .achievement-badge {
+    width: 88px;
+    height: 88px;
+    margin: 0 auto;
+  }
+
+  .achievement-mobile-label {
+    display: block;
+    margin-top: 8px;
+    color: #cbd5e1;
+    font-size: 0.72rem;
+    line-height: 1.35;
   }
 
   .intro-layout {
